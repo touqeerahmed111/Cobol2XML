@@ -31,6 +31,10 @@ public class Cobol implements PubliclyCloneable {
 	protected int dayDateWritten = 0;
 	protected String monthDateWritten;
 	protected int yearDateWritten = 0;
+	// Constant Value
+	protected String constantName;
+	protected double constantValue;
+	protected int lineNumber = 0;
 
 	
 	/**
@@ -46,6 +50,38 @@ public class Cobol implements PubliclyCloneable {
 			throw new InternalError();
 		}
 	}
+	
+	
+	public String getConstantName() {
+		return constantName;
+	}
+
+
+	public void setConstantName(String constantName) {
+		this.constantName = constantName;
+	}
+
+
+	public double getConstantValue() {
+		return constantValue;
+	}
+
+
+	public void setConstantValue(double constantValue) {
+		this.constantValue = constantValue;
+	}
+
+
+	public int getLineNumber() {
+		return lineNumber;
+	}
+
+
+	public void setLineNumber(int lineNumber) {
+		this.lineNumber = lineNumber;
+	}
+
+
 	/**
 	 * Compares two objects for equality, treating nulls carefullly,
 	 * and relying on the first object's implementation of <code>
