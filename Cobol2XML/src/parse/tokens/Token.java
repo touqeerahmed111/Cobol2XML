@@ -26,6 +26,7 @@ public class Token {
 	protected String sval;
 	protected double nval;
 
+
 	/** 
 	 * A constant indicating that the end of the stream has 
 	 * been read. 
@@ -63,6 +64,26 @@ public class Token {
 	public static final TokenType TT_QUOTED = 
 		new TokenType("quoted");
 /**
+ * Constructs a token of the indicated type and associated 
+ * string or numeric values.
+ *
+ * @param   TokenType   the type of the token, typically one 
+ *                      of the constants this class defines
+ *
+ * @param   string  the string value of the token, typically 
+ *                  null except for WORD and QUOTED tokens
+ *
+ * @param   double   the numeric value of the token, typically
+ *                   0 except for NUMBER tokens
+ *
+ * @return   a token
+ */
+public Token (TokenType ttype, String sval, double nval) {
+	this.ttype = ttype;
+	this.sval = sval;
+	this.nval = nval;
+}
+/**
  * Constructs a token from the given char.
  *
  * @param   char   the char
@@ -91,26 +112,6 @@ public Token(double nval) {
  */
 public Token (String sval) {
 	this(TT_WORD, sval, 0);
-}
-/**
- * Constructs a token of the indicated type and associated 
- * string or numeric values.
- *
- * @param   TokenType   the type of the token, typically one 
- *                      of the constants this class defines
- *
- * @param   string  the string value of the token, typically 
- *                  null except for WORD and QUOTED tokens
- *
- * @param   double   the numeric value of the token, typically
- *                   0 except for NUMBER tokens
- *
- * @return   a token
- */
-public Token (TokenType ttype, String sval, double nval) {
-	this.ttype = ttype;
-	this.sval = sval;
-	this.nval = nval;
 }
 /**
  * Returns true if the supplied object is an equivalent token.
@@ -202,22 +203,6 @@ public boolean isWord() {
 	return ttype == TT_WORD;
 }
 /**
- * Returns the numeric value of this token.
- *
- * @return    the numeric value of this token
- */
-public double nval() {
-	return nval;
-}
-/**
- * Returns the string value of this token.
- *
- * @return    the string value of this token
- */
-public String sval() {
-	return sval;
-}
-/**
  * Return a textual description of this object.
  * 
  * @return a textual description of this object
@@ -253,5 +238,21 @@ public Object value() {
 		return sval;
 	}
 	return ttype;
+}
+/**
+ * Returns the numeric value of this token.
+ *
+ * @return    the numeric value of this token
+ */
+public double nval() {
+	return nval;
+}
+/**
+ * Returns the string value of this token.
+ *
+ * @return    the string value of this token
+ */
+public String sval() {
+	return sval;
 }
 }

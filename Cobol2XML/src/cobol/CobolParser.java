@@ -23,8 +23,10 @@ package cobol;
 import parse.Alternation;
 import parse.Empty;
 import parse.Parser;
+import parse.Repetition;
 import parse.Sequence;
 import parse.tokens.CaselessLiteral;
+import parse.tokens.Literal;
 import parse.tokens.Num;
 import parse.tokens.Symbol;
 import parse.tokens.Tokenizer;
@@ -74,8 +76,13 @@ public class CobolParser {
 	s.add(new Symbol("*"));
 	s.add(new Symbol("-"));
 	s.add(new Symbol("-"));
-	s.add(new Symbol("-")); s.add(new Word().setAssembler(new CommentLineAssembler()) );
-	//s.setAssembler(new CommentLineAssembler());
+	s.add(new Symbol("-"));
+//	s.add(new Literal(""));
+//	s.add(new CaselessLiteral(" "));
+//	s.add(new Repetition(new Word()));
+//	s.add(new Word());
+//	s.add(new Word().setAssembler(new CommentLineAssembler()) );
+	s.setAssembler(new CommentLineAssembler());
 	return s;
 	}
 	/*

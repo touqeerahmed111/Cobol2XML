@@ -103,7 +103,7 @@ public class XMLPayload {
 		//System.out.println("Got Section");
 		// Add contents of procedure division
 		} else {
-		//System.out.println("Comment Line null");
+//		System.out.println("Comment Line null");
 		}
 		/*
 		* add ConstantName element
@@ -194,9 +194,12 @@ public class XMLPayload {
 		//  Comment Line element
 		
 		if(stringElement != null) {
+			System.out.println(stringElement);
 			Element cobolname = doc.createElement("comment");
 			cobolname.appendChild(doc.createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
+		}else {
+			System.out.println("null element");
 		}
 	}
  	
