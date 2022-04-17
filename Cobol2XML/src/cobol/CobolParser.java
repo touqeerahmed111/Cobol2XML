@@ -71,17 +71,13 @@ public class CobolParser {
 	protected Parser CommentLine() {
 	//System.out.println("commentLine()");
 	Sequence s = new Sequence();
-	s.add(new Symbol("*"));
-	s.add(new Symbol("*"));
-	s.add(new Symbol("*"));
-	s.add(new Symbol("-"));
-	s.add(new Symbol("-"));
-	s.add(new Symbol("-"));
-//	s.add(new Literal(""));
-//	s.add(new CaselessLiteral(" "));
-//	s.add(new Repetition(new Word()));
-//	s.add(new Word());
-//	s.add(new Word().setAssembler(new CommentLineAssembler()) );
+	s.add(new Symbol("*").discard());
+	s.add(new Symbol("*").discard());
+	s.add(new Symbol("*").discard());
+	s.add(new Symbol("-").discard());
+	s.add(new Symbol("-").discard());
+	s.add(new Symbol("-").discard());
+	s.add(new Repetition(new Word()));
 	s.setAssembler(new CommentLineAssembler());
 	return s;
 	}
