@@ -35,8 +35,31 @@ public class Cobol implements PubliclyCloneable {
 	protected String constantName;
 	protected double constantValue;
 	protected int lineNumber = 0;
+	protected String moveFrom ;
+	protected String moveTo ;
+	
 
 	
+	public String getMoveFrom() {
+		return moveFrom;
+	}
+
+
+	public void setMoveFrom(String moveFrom) {
+		this.moveFrom = moveFrom;
+	}
+
+
+	public String getMoveTo() {
+		return moveTo;
+	}
+
+
+	public void setMoveTo(String moveTo) {
+		this.moveTo = moveTo;
+	}
+
+
 	/**
 	 * Return a copy of this object.
 	 *

@@ -29,6 +29,26 @@
     </Constant>
     <division>procedure</division>
     <comment>convert from decimal to base system </comment>
+    <Move>
+        <From Value="entry_number"/>
+        <To Value="w_number"/>
+    </Move>
+    <Move>
+        <From Value="spaces"/>
+        <To Value="entry_char"/>
+    </Move>
+    <Move>
+        <From Value="16.0"/>
+        <To Value="ind"/>
+    </Move>
     <comment>convert from base to dicimal system </comment>
     <comment>allineamento a destra della variabile entry_char </comment>
+    <Move>
+        <From Value="0.0"/>
+        <To Value="w_number"/>
+    </Move>
+    <Move>
+        <From Value="w_number"/>
+        <To Value="entry_number"/>
+    </Move>
 </cobol>

@@ -52,6 +52,7 @@ public class CobolParser {
 		fullstop.discard();
 		
 		a.add( ProgramID() );
+		a.add(moveFromTo());
 		
 		a.add( DivisionName() );
 		
@@ -61,6 +62,29 @@ public class CobolParser {
 		
 		a.add(new Empty());
 		return a;
+	}
+	/*
+	* Return a parser that will recognize the grammar:
+	*
+	* move something to somewhere 
+	*
+	*/
+	protected Parser moveFromTo() {
+	
+	Sequence s = new Sequence();
+	s.add(new CaselessLiteral("move"));
+	Alternation from = new Alternation();
+	from.add(new Word());
+	from.add(new Num());
+	s.add(from);
+	s.add(new Word());
+	Alternation to = new Alternation();
+	to.add(new Word());
+	to.add(new Num());
+	s.add(to);
+	// work on the sequence.
+	s.setAssembler(new MoveFromTo());
+	return s;
 	}
 	/*
 	* Return a parser that will recognize the grammar:
@@ -77,10 +101,12 @@ public class CobolParser {
 	s.add(new Symbol("-").discard());
 	s.add(new Symbol("-").discard());
 	s.add(new Symbol("-").discard());
-	s.add(new Repetition(new Word()));
+	s.add(new Repetition(new Word()));//repeat the words
+	// work on the sequence.
 	s.setAssembler(new CommentLineAssembler());
 	return s;
 	}
+	
 	/*
 	* Return a parser that will recognize the grammar:
 	*

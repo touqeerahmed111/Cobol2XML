@@ -6,7 +6,7 @@ import parse.tokens.Token;
 
 public class CommentLineAssembler extends Assembler {
 	/**
-	 * Pop a string, and set the target DataDivision to this string.
+	 * Pop a string, and set the target CommentLine to this string.
 	 *
 	 * @param Assembly the assembly to work on
 	 */
@@ -30,7 +30,7 @@ public class CommentLineAssembler extends Assembler {
 			}
 
 			c.setCommentLine(revStr);//setting a comment line field variable in cobol's instance
-			a.setTarget(c);//setting a cobol instance to asymeble's target field variable.
+			a.setTarget(c);//setting a cobol instance to asymeble's target field variable
 		}
 
 

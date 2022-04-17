@@ -95,6 +95,17 @@ public class XMLPayload {
 	
 	public void addElements(Cobol c) {
 		/*
+		* add moveFromTo element
+		*/
+		String moveFrom = c.getMoveFrom();
+		if (moveFrom != null) {
+		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
+		//System.out.println("Got Section");
+		// Add contents of procedure division
+		} else {
+//		System.out.println("Comment Line null");
+		}
+		/*
 		* add commentLine element
 		*/
 		String commentLine = c.getCommentLine();
@@ -180,7 +191,27 @@ public class XMLPayload {
 	}
 	
 
- 	void addProgram_IDElement(String stringElement) {
+ 	private void addMoveFromToElement(String moveFrom, String moveTo) {
+ 		if(moveFrom != null) {
+			System.out.println(moveFrom);
+			Element cobolname = doc.createElement("Move");
+			Element from = doc.createElement("From");
+			Attr attrType = doc.createAttribute("Value" );
+			attrType.setValue( moveFrom );
+			from.setAttributeNode(attrType);
+			cobolname.appendChild(from);
+			Element to = doc.createElement("To");
+			Attr attrType2 = doc.createAttribute("Value" );
+			attrType2.setValue( moveTo );
+			to.setAttributeNode(attrType2);
+			cobolname.appendChild(to);
+			rootElement.appendChild(cobolname);
+		}else {
+			System.out.println("null element");
+		}
+		
+	}
+	void addProgram_IDElement(String stringElement) {
 		//  Program ID element
 		
 		if(stringElement != null) {
@@ -194,12 +225,9 @@ public class XMLPayload {
 		//  Comment Line element
 		
 		if(stringElement != null) {
-			System.out.println(stringElement);
 			Element cobolname = doc.createElement("comment");
 			cobolname.appendChild(doc.createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
-		}else {
-			System.out.println("null element");
 		}
 	}
  	
