@@ -206,8 +206,6 @@ public class XMLPayload {
 			to.setAttributeNode(attrType2);
 			cobolname.appendChild(to);
 			rootElement.appendChild(cobolname);
-		}else {
-			System.out.println("null element");
 		}
 		
 	}
