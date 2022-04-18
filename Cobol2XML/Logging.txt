@@ -1,6 +1,6 @@
-Apr 17, 2022 3:22:43 PM cobol.Cobol2XML main
+Apr 18, 2022 4:11:50 AM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
-Apr 17, 2022 3:22:43 PM xmlwriter.XMLPayload writeFile
+Apr 18, 2022 4:11:50 AM xmlwriter.XMLPayload writeFile
 INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>

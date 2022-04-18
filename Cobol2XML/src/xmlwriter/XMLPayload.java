@@ -100,11 +100,10 @@ public class XMLPayload {
 		String moveFrom = c.getMoveFrom();
 		if (moveFrom != null) {
 		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
-		//System.out.println("Got Section");
-		// Add contents of procedure division
-		} else {
-//		System.out.println("Comment Line null");
-		}
+		
+		} 
+		
+		
 		/*
 		* add commentLine element
 		*/
@@ -191,6 +190,10 @@ public class XMLPayload {
 	}
 	
 
+ 	/**
+ 	 * @param moveFrom
+ 	 * @param moveTo
+ 	 */
  	private void addMoveFromToElement(String moveFrom, String moveTo) {
  		if(moveFrom != null) {
 			System.out.println(moveFrom);

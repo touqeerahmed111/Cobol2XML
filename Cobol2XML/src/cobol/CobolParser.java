@@ -83,7 +83,7 @@ public class CobolParser {
 	to.add(new Num());
 	s.add(to);
 	// work on the sequence.
-	s.setAssembler(new MoveFromTo());
+	s.setAssembler(new MoveFromToAssembler());
 	return s;
 	}
 	/*

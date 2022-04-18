@@ -4,7 +4,7 @@ import parse.Assembler;
 import parse.Assembly;
 import parse.tokens.Token;
 
-public class MoveFromTo extends Assembler {
+public class MoveFromToAssembler extends Assembler {
 
 	/**
 	 * Pop a string, and set the target MoveFromTo to this string.
