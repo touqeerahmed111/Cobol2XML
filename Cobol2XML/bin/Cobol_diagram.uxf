@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>243</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>Cobol
+-
+commentLine : String
+constantName : String
+constantValue : double
+dayDateWritten : int
+divisionName : String
+lineNumber : int
+monthDateWritten : String
+program_id : String
+sectionName : String
+yearDateWritten : int
+-
+ifCobolObjEqual(Object, Object)
+clone() : Obj
+equals(Object)
+getCommentLine()
+getConstantName()
+getConstantValue()
+getDayDateWritten()
+getDivisionName()
+getLineNumber()
+getMonthDateWritten()
+getProgram_ID()
+getSectionName()
+getYearDateWritten()
+hashCode()
+setCommentLine(String)
+setConstantName(String)
+setConstantValue(double)
+setDayDateWritten(int)
+setDivisionName(String)
+setLineNumber(int)
+setMonthDateWritten(String)
+setProgram_ID(String)
+setSectionName(String)
+setYearDateWritten(int)
+toString()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>54</y>
+      <w>378</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>Parser
+--
+# assembler : Assembler
+# name : String
+--
+&lt;&lt;Constructor&gt;&gt; + Parser()
+&lt;&lt;Constructor&gt;&gt; + Parser(String)
++ add(ArrayList&lt;Assembly&gt;, ArrayList&lt;Assembly&gt;):void
++ elementClone(ArrayList&lt;Assembly&gt;):ArrayList&lt;Assembly&gt;
++ accept(ParserVisitor, ArrayList&lt;Assembly&gt;):void
++ best(ArrayList&lt;Assembly&gt;):Assembly
++ bestMatch(Assembly):Assembly
++ completeMatch(Assembly):Assembly
++ getName():String
++ match(ArrayList&lt;Assembly&gt;):ArrayList&lt;Assembly&gt;
++ matchAndAssemble(ArrayList&lt;Assembly&gt;):ArrayList&lt;Assembly&gt;
++ randomExpansion(int, int):ArrayList&lt;?&gt;
++ randomInput(int, String):String
++ setAssembler(Assembler):Parser
++ toString():String
++ toString(ArrayList&lt;Parser&gt;)
++ unvisitedString(ArrayList&lt;Parser&gt;):String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>54</y>
+      <w>324</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Assembler
+--
+
+-
++ elementsAbove(Assembly, Object):ArrayList&lt;Object&gt;
++ workOn(Assembly):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>873</x>
+      <y>360</y>
+      <w>216</w>
+      <h>324</h>
+    </coordinates>
+    <panel_attributes>Assembly
+--
+# index : int
+# stack : Stack&lt;Object&gt;
+# target : PubliclyCloneable
+-
++ clone():Object
++ consumed(String):String
++ defaultDelimiter():String
++ elementsConsumed():int
++ elementsRemaining():int
++ getStack():Stack&lt;Object&gt;
++ getTarget():Object
++ hasMoreElements():boolean
++ length():int
++ peek():Object
++ pop():Object
++ push(Object):void
++ remainder(String):String
++ setTarget(PubliclyCloneable):void
++ stackIsEmpty():boolean
++ toString():String
++ unget(int):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>729</x>
+      <y>72</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses
+m1=0..*</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>819</x>
+      <y>216</y>
+      <w>171</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;PubliclyCloneable&gt;&gt;/
+-
+
+-
++ clone():Object</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>999</x>
+      <y>216</y>
+      <w>171</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;Enumeration&gt;&gt;/
+-
+
+-
++ hasMoreElements():boolean
++ nextElement():E
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>288</y>
+      <w>108</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+Realisation or
+implements</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1062</x>
+      <y>288</y>
+      <w>99</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+Realisation or
+implements</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>819</y>
+      <w>216</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>TokenAssembly
+--
+# tokenString : TokenString
+-
++ TokenAssembly(String)
++ TokenAssembly(Tokenizer)
++ TokenAssembly(TokenString)
++ consumed(String)
++ defaultDelimiter()
++ length()
++ nextElement()
++ peek()
++ remainder(String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>819</y>
+      <w>216</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>Assembly
+--
+# index : int
+# stack : Stack&lt;Object&gt;
+# target : PubliclyCloneable
+-
+.....
++ consumed(String):String
++ defaultDelimiter():String
++ nextElement():Object
++ length():int
++ peek():Object
++ remainder(String):String
+.....</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>882</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Generlization or
+extends</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>351</x>
+      <y>792</y>
+      <w>234</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>parse package</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>675</x>
+      <y>792</y>
+      <w>234</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>parse.tokens package</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>513</y>
+      <w>342</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Parser
+-
+# assembler : Assembler
+# name : String
+-
++ add(ArrayList&lt;Assembly&gt;, ArrayList&lt;Assembly&gt;):void
++ elementClone(ArrayList&lt;Assembly&gt;)
++ accept(ParserVisitor)
++ best(ArrayList&lt;Assembly&gt;)
++ bestMatch(Assembly)
++ completeMatch(Assembly)
+:+ matchAndAssemble(ArrayList&lt;Assembly&gt;)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>243</x>
+      <y>657</y>
+      <w>144</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>Token
+-
+# nval : double
+# sval : String
+# ttype : TokenType
+-
++ Token(char)
++ Token(double)
++ Token(String)
++ nval(): double
++ sval(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

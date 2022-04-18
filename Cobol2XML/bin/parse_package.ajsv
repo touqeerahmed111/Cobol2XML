@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--AgileJ Ltd. (http://www.agilej.com)--><ajsv>
+    <diagram creationDate="2022-Apr-12 03:17" licenseGrade="single" licenseeName="AgileJ community member" licenseeOrganization="agilej-community" populationMethod="manual" version="1.9.2.v20190518-1152">
+        <filterScript>
+
+// no filter script yet defined for this class diagram
+// use CTRL+SPACE for completion suggestions
+//hide call lines 
+hide method lines 
+show all interfaces in blue 
+show subtypes of members of package
+
+</filterScript>
+        <class className="parse.Parser" modelMemberId="parse.Parser" project="Cobol2XML" xLocation="-145" yLocation="613"/>
+        <class className="parse.Assembly" modelMemberId="parse.Assembly" project="Cobol2XML" xLocation="871" yLocation="668"/>
+        <class className="parse.Terminal" modelMemberId="parse.Terminal" project="Cobol2XML" xLocation="-693" yLocation="2946"/>
+        <class className="parse.Alternation" modelMemberId="parse.Alternation" project="Cobol2XML" xLocation="1320" yLocation="2680"/>
+        <class className="parse.Sequence" modelMemberId="parse.Sequence" project="Cobol2XML" xLocation="1882" yLocation="1316"/>
+        <class className="parse.Repetition" modelMemberId="parse.Repetition" project="Cobol2XML" xLocation="-664" yLocation="1729"/>
+        <class className="parse.CollectionParser" modelMemberId="parse.CollectionParser" project="Cobol2XML" xLocation="1920" yLocation="1923"/>
+        <class className="parse.tokens.TokenAssembly" modelMemberId="parse.tokens.TokenAssembly" project="Cobol2XML" xLocation="1042" yLocation="1472"/>
+        <class className="parse.Empty" modelMemberId="parse.Empty" project="Cobol2XML" xLocation="183" yLocation="1652"/>
+        <class className="java.util.Enumeration" modelMemberId="java.util.Enumeration" project="Cobol2XML" xLocation="1661" yLocation="329"/>
+        <class className="cobol.CobolParser" modelMemberId="cobol.CobolParser" project="Cobol2XML" xLocation="310" yLocation="2391"/>
+        <class className="parse.Assembler" modelMemberId="parse.Assembler" project="Cobol2XML" xLocation="514" yLocation="2737"/>
+        <class className="utensil.PubliclyCloneable" modelMemberId="utensil.PubliclyCloneable" project="Cobol2XML" xLocation="1817" yLocation="789"/>
+        <class className="java.lang.Cloneable" modelMemberId="java.lang.Cloneable" project="Cobol2XML" xLocation="1310" yLocation="443"/>
+    </diagram>
+</ajsv>
