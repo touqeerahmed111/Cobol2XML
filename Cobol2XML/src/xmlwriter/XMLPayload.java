@@ -99,7 +99,9 @@ public class XMLPayload {
 		 */
 		String accept = c.getAccept();
 		if (accept != null) {
-			this.addAccept(accept);
+			this.addAcceptElement(accept);
+		} else {
+			// accept null
 		}
 		
 		/*
@@ -108,11 +110,7 @@ public class XMLPayload {
 		String moveFrom = c.getMoveFrom();
 		if (moveFrom != null) {
 		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
-		
-		} else {
-//			System.out.println("accept null");
-			}
-		
+		}
 		
 		/*
 		* add commentLine element
@@ -201,7 +199,7 @@ public class XMLPayload {
 	/**
 	 * @param accept
 	 */
-	private void addAccept(String accept) {
+	private void addAcceptElement(String accept) {
 		// accept element
 		
 		if (accept != null) {

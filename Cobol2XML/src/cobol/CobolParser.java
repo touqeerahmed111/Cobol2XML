@@ -67,7 +67,7 @@ public class CobolParser {
 	/*
 	* Return a parser that will recognise the grammar:
 	*
-	* accept
+	* <accept>
 	*
 	*/
 	protected Parser accept() {
