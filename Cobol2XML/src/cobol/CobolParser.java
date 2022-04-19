@@ -61,7 +61,28 @@ public class CobolParser {
 		a.add( DateWritten() );
 		
 		a.add(new Empty());
+		
+		a.add(	perform());
 		return a;
+	}
+	
+	protected Parser perform() {
+		
+		Sequence s = new Sequence();
+		s.add(new CaselessLiteral("perform"));
+		
+		Alternation start = new Alternation();
+		start.add(new Word());
+		s.add(start);
+		s.add(new Word());
+		
+		Alternation end = new Alternation();
+		end.add(new Word());
+		s.add(end);
+		
+		// work on the sequence.
+		s.setAssembler(new PerformAssembler());
+		return s;
 	}
 	/*
 	* Return a parser that will recognize the grammar:
