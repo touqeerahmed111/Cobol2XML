@@ -51,7 +51,6 @@ public class CobolParser {
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
 		
-		a.add( accept());
 		a.add( ProgramID() );
 		a.add(moveFromTo());
 		
@@ -65,20 +64,6 @@ public class CobolParser {
 		return a;
 	}
 	/*
-	* Return a parser that will recognise the grammar:
-	*
-	* accept
-	*
-	*/
-	protected Parser accept() {
-		
-	Sequence s = new Sequence();
-	s.add(new CaselessLiteral("accept"));
-	s.add(new Repetition(new Word()));//repeat the words
-	s.setAssembler(new AcceptAssembler());
-	return s;
-	}
-	/*
 	* Return a parser that will recognize the grammar:
 	*
 	* move something to somewhere 
@@ -88,19 +73,21 @@ public class CobolParser {
 	
 	Sequence s = new Sequence();
 	s.add(new CaselessLiteral("move"));
-	Alternation from = new Alternation();
+	Alternation from = new Alternation();//read if a token is number or word
 	from.add(new Word());
 	from.add(new Num());
-	s.add(from);
+	s.add(from);//adding alternation to sequence
 	s.add(new Word());
-	Alternation to = new Alternation();
+	Alternation to = new Alternation();//read if a token is number or word
 	to.add(new Word());
 	to.add(new Num());
-	s.add(to);
+	s.add(to);//adding alternation to sequence
 	// work on the sequence.
 	s.setAssembler(new MoveFromToAssembler());
 	return s;
 	}
+	
+	
 	/*
 	* Return a parser that will recognize the grammar:
 	*
