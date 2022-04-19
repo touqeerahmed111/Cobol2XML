@@ -24,6 +24,8 @@ package cobol;
 import utensil.*;
 
 public class Cobol implements PubliclyCloneable {
+	protected String acceptLine;
+	protected String displayLine;
 	protected String commentLine;
 	protected String program_id;
 	protected String sectionName;
@@ -161,6 +163,24 @@ public class Cobol implements PubliclyCloneable {
 
 
 	/**
+	 * Return accept line.
+	 * 
+	 * @return accept line
+	 */
+	public String getAcceptLine() {
+		return acceptLine;
+	}
+	
+	/**
+	 * Return display line.
+	 * 
+	 * @return display line
+	 */
+	public String getDisplayLine() {
+		return displayLine;
+	}
+	 
+	/**
 	 * Return line of commented text from the COBOL program.
 	 *
 	 * @return line of commented text from the COBOL program
@@ -168,7 +188,6 @@ public class Cobol implements PubliclyCloneable {
 	public String getCommentLine() {
 		return commentLine;
 	}
-	
 
 	/**
 	 * Return the name of this COBOL program.
@@ -226,15 +245,31 @@ public class Cobol implements PubliclyCloneable {
 	}
 	
 	/**
+	 * Set the accept line of this COBOL program.
+	 * 
+	 * @param  String  accept line
+	 */
+	public void setAcceptLine(String acceptLine) {
+		this.acceptLine = acceptLine;
+	}
+	
+	/**
 	 * Set a line of commented text from the COBOL program.
 	 *
-	 * @return line of commented text from the COBOL program
+	 * @param line of commented text from the COBOL program
 	 */
 	public void setCommentLine(String commentLine) {
 		this.commentLine = commentLine;
 	}
 
-
+	/**
+	 * Set the display line of this COBOL program.
+	 * 
+	 * @param  String  display line
+	 */
+	public void setDisplayLine(String displayLine) {
+		this.displayLine = displayLine;
+	}
 
 	/**
 	 * Set the name of this cobol file.

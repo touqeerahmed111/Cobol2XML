@@ -28,6 +28,7 @@ import parse.Sequence;
 import parse.tokens.CaselessLiteral;
 import parse.tokens.Literal;
 import parse.tokens.Num;
+import parse.tokens.QuotedString;
 import parse.tokens.Symbol;
 import parse.tokens.Tokenizer;
 import parse.tokens.Word;
@@ -47,6 +48,11 @@ public class CobolParser {
 		Alternation a = new Alternation();
 		
 		a.add( constantValue() );
+		
+		a.add( AcceptLine() );
+		
+		a.add( DisplayLine() );
+		
 		a.add( CommentLine() );
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
@@ -108,6 +114,40 @@ public class CobolParser {
 	}
 	
 	/*
+	 * Return a parser that will recognise the grammar:
+	 * 
+	 * accept 
+	 * 
+	 */
+	protected Parser AcceptLine()
+	{
+		Sequence s = new Sequence();
+		s.add(new CaselessLiteral("accept"));
+		s.add(new Repetition(new Word()));
+		s.setAssembler(new AcceptLineAssembler());
+		return s;
+	}
+	
+	/*
+	 * Return a parser that will recognise the grammar:
+	 * 
+	 * display 
+	 * 
+	 */
+	protected Parser DisplayLine()
+	{
+		Sequence s = new Sequence();
+		s.add(new CaselessLiteral("display"));
+		s.add(new QuotedString());
+		s.add(new Word());
+		Alternation alt = new Alternation();
+		alt.add(new QuotedString());
+		alt.add(new Word());
+		s.setAssembler(new DisplayLineAssembler());
+		return s;
+	}
+	
+	/*
 	* Return a parser that will recognize the grammar:
 	*
 	* <line number> <contstant name> "value" <constant value>.
@@ -136,8 +176,6 @@ public class CobolParser {
 		s.add(new Word().setAssembler(new Program_idAssembler()));
 		return s;
 	}
-
-
 
 	/*
 	 * Return a parser that will recognise the grammar:

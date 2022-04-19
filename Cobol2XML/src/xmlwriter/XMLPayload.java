@@ -103,7 +103,18 @@ public class XMLPayload {
 		
 		} 
 		
-		
+		/*
+		 * add AcceptLine element
+		 */
+		String acceptLine = c.getAcceptLine();
+		if(acceptLine != null) {
+			this.addAcceptLineElement(acceptLine);
+			//System.out.println("Got Section");
+			//Add contents of procedure division
+		} else
+		{
+			//System.out.println("Comment line null");
+		}
 		/*
 		* add commentLine element
 		*/
@@ -114,6 +125,18 @@ public class XMLPayload {
 		// Add contents of procedure division
 		} else {
 //		System.out.println("Comment Line null");
+		}
+		/*
+		 * add DisplayLine element
+		 */
+		String displayLine = c.getDisplayLine();
+		if(displayLine != null) {
+			this.addDisplayLineElement(displayLine);
+			//System.out.println("Got Section");
+			//Add contents of procedure division
+		} else
+		{
+			//System.out.println("Comment line null");
 		}
 		/*
 		* add ConstantName element
@@ -221,6 +244,16 @@ public class XMLPayload {
 			rootElement.appendChild(cobolname);
 		}
 	}
+	
+	void addAcceptLineElement(String stringElement) {
+		// Accept line element
+		
+		if(stringElement != null) {
+			Element cobolname = doc.createElement("accept");
+			cobolname.appendChild(doc.createTextNode(stringElement));
+			rootElement.appendChild(cobolname);
+		}
+	}
  	
 	void addCommentLineElement(String stringElement) {
 		//  Comment Line element
@@ -232,7 +265,15 @@ public class XMLPayload {
 		}
 	}
  	
- 	
+	void addDisplayLineElement(String stringElement) {
+		// Accept line element
+		
+		if(stringElement != null) {
+			Element cobolname = doc.createElement("display");
+			cobolname.appendChild(doc.createTextNode(stringElement));
+			rootElement.appendChild(cobolname);
+		}
+	}
  	
  	void addSectionElement(String stringElement) {
 		//  Section element

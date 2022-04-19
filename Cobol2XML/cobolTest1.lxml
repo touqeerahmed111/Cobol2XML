@@ -28,34 +28,4 @@
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
-    <display>"  "Base: no  </display>
-    <accept>current_base convert  </accept>
-    <display>" "Value: no  </display>
-    <accept>entry_char  </accept>
-    <display>" value:  "Decimal entry_char  </display>
-    <display>" "Base: current_base  </display>
-    <accept>omitted  </accept>
-    <comment>convert from decimal to base system </comment>
-    <Move>
-        <From Value="entry_number"/>
-        <To Value="w_number"/>
-    </Move>
-    <Move>
-        <From Value="spaces"/>
-        <To Value="entry_char"/>
-    </Move>
-    <Move>
-        <From Value="16.0"/>
-        <To Value="ind"/>
-    </Move>
-    <comment>convert from base to dicimal system </comment>
-    <comment>allineamento a destra della variabile entry_char </comment>
-    <Move>
-        <From Value="0.0"/>
-        <To Value="w_number"/>
-    </Move>
-    <Move>
-        <From Value="w_number"/>
-        <To Value="entry_number"/>
-    </Move>
 </cobol>
