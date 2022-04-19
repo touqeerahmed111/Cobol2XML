@@ -55,7 +55,7 @@ toString()
     <coordinates>
       <x>360</x>
       <y>54</y>
-      <w>378</w>
+      <w>387</w>
       <h>315</h>
     </coordinates>
     <panel_attributes>Parser
@@ -134,15 +134,15 @@ toString()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
+      <x>738</x>
       <y>72</y>
-      <w>144</w>
+      <w>135</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 uses
 m1=0..*</panel_attributes>
-    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

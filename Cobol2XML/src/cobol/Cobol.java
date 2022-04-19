@@ -39,9 +39,43 @@ public class Cobol implements PubliclyCloneable {
 	protected int lineNumber = 0;
 	protected String moveFrom ;
 	protected String moveTo ;
+	//perform values
+	protected String performStart = "";
+	protected String performEnd = "";
+	protected String performAction = "";
 	
 
 	
+	public String getPerformStart() {
+		return performStart;
+	}
+
+
+	public void setPerformStart(String performStart) {
+		this.performStart = performStart;
+	}
+
+
+	public String getPerformEnd() {
+		return performEnd;
+	}
+
+
+	public void setPerformEnd(String performEnd) {
+		this.performEnd = performEnd;
+	}
+
+
+	public String getPerformAction() {
+		return performAction;
+	}
+
+
+	public void setPerformAction(String performAction) {
+		this.performAction = performAction;
+	}
+
+
 	public String getMoveFrom() {
 		return moveFrom;
 	}
@@ -75,7 +109,6 @@ public class Cobol implements PubliclyCloneable {
 			throw new InternalError();
 		}
 	}
-	
 	
 	public String getConstantName() {
 		return constantName;

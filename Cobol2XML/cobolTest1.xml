@@ -32,7 +32,15 @@
     <accept>current_base convert  </accept>
     <display>" "Value: no  </display>
     <accept>entry_char  </accept>
+    <Perform>
+        <Start Value="base-to-decimal"/>
+        <End Value="base-to-decimal-ex"/>
+    </Perform>
     <display>" value:  "Decimal entry_char  </display>
+    <Perform>
+        <Start Value="decimal-to-base"/>
+        <End Value="decimal-to-base-ex"/>
+    </Perform>
     <display>" "Base: current_base  </display>
     <accept>omitted  </accept>
     <comment>convert from decimal to base system </comment>
@@ -54,6 +62,10 @@
         <From Value="0.0"/>
         <To Value="w_number"/>
     </Move>
+    <Perform>
+        <Start Value="test"/>
+        <End Value="varying"/>
+    </Perform>
     <Move>
         <From Value="w_number"/>
         <To Value="entry_number"/>

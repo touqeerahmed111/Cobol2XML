@@ -67,8 +67,30 @@ public class CobolParser {
 		a.add( DateWritten() );
 		
 		a.add(new Empty());
+		
+		a.add(	perform());
 		return a;
 	}
+	
+	protected Parser perform() {
+		
+		Sequence s = new Sequence();
+		s.add(new CaselessLiteral("perform"));
+		
+		Alternation start = new Alternation();
+		start.add(new Word());
+		s.add(start);
+		s.add(new Word());
+		
+		Alternation end = new Alternation();
+		end.add(new Word());
+		s.add(end);
+		
+		// work on the sequence.
+		s.setAssembler(new PerformAssembler());
+		return s;
+	}
+
 	/*
 	* Return a parser that will recognize the grammar:
 	*
@@ -79,19 +101,35 @@ public class CobolParser {
 	
 	Sequence s = new Sequence();
 	s.add(new CaselessLiteral("move"));
-	Alternation from = new Alternation();
+	Alternation from = new Alternation();//read if a token is number or word
 	from.add(new Word());
 	from.add(new Num());
-	s.add(from);
+	s.add(from);//adding alternation to sequence
 	s.add(new Word());
-	Alternation to = new Alternation();
+	Alternation to = new Alternation();//read if a token is number or word
 	to.add(new Word());
 	to.add(new Num());
-	s.add(to);
+	s.add(to);//adding alternation to sequence
 	// work on the sequence.
 	s.setAssembler(new MoveFromToAssembler());
 	return s;
 	}
+	
+	/*
+	* Return a parser that will recognise the grammar:
+	*
+	* accept
+	*
+	*/
+	protected Parser AcceptLine() {
+		
+	Sequence s = new Sequence();
+	s.add(new CaselessLiteral("accept"));
+	s.add(new Repetition(new Word()));
+	s.setAssembler(new AcceptLineAssembler());
+	return s;
+	}
+	
 	/*
 	* Return a parser that will recognize the grammar:
 	*
@@ -111,21 +149,6 @@ public class CobolParser {
 	// work on the sequence.
 	s.setAssembler(new CommentLineAssembler());
 	return s;
-	}
-	
-	/*
-	 * Return a parser that will recognise the grammar:
-	 * 
-	 * accept 
-	 * 
-	 */
-	protected Parser AcceptLine()
-	{
-		Sequence s = new Sequence();
-		s.add(new CaselessLiteral("accept"));
-		s.add(new Repetition(new Word()));
-		s.setAssembler(new AcceptLineAssembler());
-		return s;
 	}
 	
 	/*
