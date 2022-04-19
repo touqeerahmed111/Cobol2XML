@@ -5,7 +5,6 @@ import parse.Assembly;
 import parse.tokens.Token;
 
 public class MoveFromToAssembler extends Assembler {
-
 	/**
 	 * Pop a string, and set the target MoveFromTo to this string.
 	 *
@@ -14,14 +13,14 @@ public class MoveFromToAssembler extends Assembler {
 	@Override
 	public void workOn(Assembly a) {
 		Cobol c = new Cobol();// cobol instance created
-		Token t = (Token) a.pop();// popping move to token
+		Token t = (Token) a.pop();// popping perform start token
 		if (!t.sval().isEmpty()) {
 			c.setMoveTo(t.sval().trim());
 		}else {
 			c.setMoveTo(Double.toString(t.nval()));
 		}
-		t = (Token) a.pop();// token has value "to" ignore it
-		t = (Token) a.pop();//move from token
+		t = (Token) a.pop();// token has value "thru" ignore it
+		t = (Token) a.pop();//perform end token
 		if (!t.sval().isEmpty()) {
 			c.setMoveFrom(t.sval().trim());
 		}else {
@@ -31,4 +30,5 @@ public class MoveFromToAssembler extends Assembler {
 		
 	}
 
+	
 }
