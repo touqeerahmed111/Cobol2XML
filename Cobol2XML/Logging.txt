@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-Apr 19, 2022 3:03:51 PM cobol.Cobol2XML main
+Apr 19, 2022 3:30:12 PM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
-Apr 19, 2022 3:03:52 PM xmlwriter.XMLPayload writeFile
+Apr 19, 2022 3:30:12 PM xmlwriter.XMLPayload writeFile
 INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
@@ -57,7 +56,3 @@ INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     </Move>
 </cobol>
 
-=======
-Apr 19, 2022 2:29:06 AM cobol.Cobol2XML main
-INFO: Cobol2XML V0.1.0
->>>>>>> 9151a6ef48d0969741ce182f955755ccd288f8b9
