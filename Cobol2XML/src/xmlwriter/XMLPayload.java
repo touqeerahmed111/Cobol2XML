@@ -109,9 +109,7 @@ public class XMLPayload {
 		if (moveFrom != null) {
 		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
 		
-		} else {
-			System.out.println("accept null");
-			}
+		} 
 		
 		
 		/*
@@ -218,7 +216,7 @@ public class XMLPayload {
  	 */
  	private void addMoveFromToElement(String moveFrom, String moveTo) {
  		if(moveFrom != null) {
-			System.out.println(moveFrom);
+//			System.out.println(moveFrom);
 			Element cobolname = doc.createElement("Move");
 			Element from = doc.createElement("From");
 			Attr attrType = doc.createAttribute("Value" );
