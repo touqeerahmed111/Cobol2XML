@@ -110,7 +110,7 @@ public class XMLPayload {
 		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
 		
 		} else {
-			System.out.println("accept null");
+//			System.out.println("accept null");
 			}
 		
 		
@@ -202,8 +202,9 @@ public class XMLPayload {
 	 * @param accept
 	 */
 	private void addAccept(String accept) {
+		// accept element
+		
 		if (accept != null) {
-//			System.out.println(accept);
 			Element cobolname = doc.createElement("accept");
 			cobolname.appendChild(doc.createTextNode(accept));
 			rootElement.appendChild(cobolname);

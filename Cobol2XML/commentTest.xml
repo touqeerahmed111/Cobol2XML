@@ -28,9 +28,9 @@
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
-    <accept>convert</accept>
-    <accept>entry_char</accept>
-    <accept>omitted</accept>
+    <accept>current_base convert  </accept>
+    <accept>entry_char  </accept>
+    <accept>omitted  </accept>
     <comment>convert from decimal to base system </comment>
     <Move>
         <From Value="entry_number"/>

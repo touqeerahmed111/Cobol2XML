@@ -74,7 +74,7 @@ public class CobolParser {
 		
 	Sequence s = new Sequence();
 	s.add(new CaselessLiteral("accept"));
-	s.add(new Repetition(new Word()));//repeat the words
+	s.add(new Repetition(new Word()));
 	s.setAssembler(new AcceptAssembler());
 	return s;
 	}

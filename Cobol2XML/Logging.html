@@ -8,7 +8,7 @@ h1 {font:normal 11pt Tahoma;}
 </style>
 </head>
 <body>
-<h1>Tue Apr 19 01:41:44 BST 2022</h1>
+<h1>Tue Apr 19 02:29:06 BST 2022</h1>
 <table border="0" cellpadding="5" cellspacing="3">
 <tr align="left">
 	<th style="width:10%">Loglevel</th>
@@ -17,71 +17,6 @@ h1 {font:normal 11pt Tahoma;}
 </tr>
 <tr>
 	<td>INFO</td>
-	<td>Apr 19,2022 01:41</td>
+	<td>Apr 19,2022 02:29</td>
 	<td>Cobol2XML V0.1.0</td>
 </tr>
-<tr>
-	<td>INFO</td>
-	<td>Apr 19,2022 01:41</td>
-	<td><?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<cobol>
-    <division>identification</division>
-    <Program-ID>base</Program-ID>
-    <day-date-written>7</day-date-written>
-    <month-date-written>mar</month-date-written>
-    <year-date-written>1995</year-date-written>
-    <division>data</division>
-    <section>working-storage</section>
-    <Constant>
-        <Constant Name="base_2"/>
-        <base_2 Line_Number="88"/>
-        <base_2 Value="2.0"/>
-    </Constant>
-    <Constant>
-        <Constant Name="base_8"/>
-        <base_8 Line_Number="88"/>
-        <base_8 Value="8.0"/>
-    </Constant>
-    <Constant>
-        <Constant Name="base_10"/>
-        <base_10 Line_Number="88"/>
-        <base_10 Value="10.0"/>
-    </Constant>
-    <Constant>
-        <Constant Name="base_16"/>
-        <base_16 Line_Number="88"/>
-        <base_16 Value="16.0"/>
-    </Constant>
-    <division>procedure</division>
-    <accept>convert</accept>
-    <accept>entry_char</accept>
-    <accept>omitted</accept>
-    <comment>convert from decimal to base system </comment>
-    <Move>
-        <From Value="entry_number"/>
-        <To Value="w_number"/>
-    </Move>
-    <Move>
-        <From Value="spaces"/>
-        <To Value="entry_char"/>
-    </Move>
-    <Move>
-        <From Value="16.0"/>
-        <To Value="ind"/>
-    </Move>
-    <comment>convert from base to dicimal system </comment>
-    <comment>allineamento a destra della variabile entry_char </comment>
-    <Move>
-        <From Value="0.0"/>
-        <To Value="w_number"/>
-    </Move>
-    <Move>
-        <From Value="w_number"/>
-        <To Value="entry_number"/>
-    </Move>
-</cobol>
-</td>
-</tr>
-</table>
-</body>
-</html>
