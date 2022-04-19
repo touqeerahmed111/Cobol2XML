@@ -1,6 +1,6 @@
-Apr 19, 2022 3:30:12 PM cobol.Cobol2XML main
+Apr 19, 2022 4:13:16 PM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
-Apr 19, 2022 3:30:12 PM xmlwriter.XMLPayload writeFile
+Apr 19, 2022 4:13:16 PM xmlwriter.XMLPayload writeFile
 INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
@@ -31,6 +31,14 @@ INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
+    <Perform>
+        <Start Value="base-to-decimal"/>
+        <End Value="base-to-decimal-ex"/>
+    </Perform>
+    <Perform>
+        <Start Value="decimal-to-base"/>
+        <End Value="decimal-to-base-ex"/>
+    </Perform>
     <comment>convert from decimal to base system </comment>
     <Move>
         <From Value="entry_number"/>
@@ -50,6 +58,10 @@ INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <From Value="0.0"/>
         <To Value="w_number"/>
     </Move>
+    <Perform>
+        <Start Value="test"/>
+        <End Value="varying"/>
+    </Perform>
     <Move>
         <From Value="w_number"/>
         <To Value="entry_number"/>

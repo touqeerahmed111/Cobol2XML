@@ -89,46 +89,42 @@ public class XMLPayload {
 		}
 	}
 
-			
-
-	
-	
 	void addPerform(String actionP, String endP, String startP) {
-		//System.out.println("action: " + actionP + " end: " + endP + " start: " + startP);
-		if(startP != "") {
-			//System.out.println(moveFrom);
+		// System.out.println("action: " + actionP + " end: " + endP + " start: " +
+		// startP);
+		if (startP != "") {
+			// System.out.println(moveFrom);
 			Element cobolname = doc.createElement("Perform");
 			Element start = doc.createElement("Start");
-			Attr attrType = doc.createAttribute("Value" );
-			attrType.setValue( startP );
+			Attr attrType = doc.createAttribute("Value");
+			attrType.setValue(startP);
 			start.setAttributeNode(attrType);
 			cobolname.appendChild(start);
 			Element end = doc.createElement("End");
-			Attr attrType2 = doc.createAttribute("Value" );
-			attrType2.setValue( endP );
+			Attr attrType2 = doc.createAttribute("Value");
+			attrType2.setValue(endP);
 			end.setAttributeNode(attrType2);
 			cobolname.appendChild(end);
 			rootElement.appendChild(cobolname);
-		
-			
-		}else if (actionP != ""){
-			
+
+		} else if (actionP != "") {
+
 			Element cobolname = doc.createElement("Perform");
 			Element start = doc.createElement("Action");
-			Attr attrType = doc.createAttribute("Value" );
-			attrType.setValue( actionP );
+			Attr attrType = doc.createAttribute("Value");
+			attrType.setValue(actionP);
 			start.setAttributeNode(attrType);
 			cobolname.appendChild(start);
 			rootElement.appendChild(cobolname);
-		
+
 		}
-			
+
 	}
-	
+
 	public void addElements(Cobol c) {
-		
+
 		this.addPerform(c.getPerformAction(), c.getPerformEnd(), c.getPerformStart());
-		
+
 		/*
 		 * add accept element
 		 */

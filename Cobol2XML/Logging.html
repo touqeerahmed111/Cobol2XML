@@ -8,7 +8,7 @@ h1 {font:normal 11pt Tahoma;}
 </style>
 </head>
 <body>
-<h1>Tue Apr 19 15:30:12 BST 2022</h1>
+<h1>Tue Apr 19 16:13:16 BST 2022</h1>
 <table border="0" cellpadding="5" cellspacing="3">
 <tr align="left">
 	<th style="width:10%">Loglevel</th>
@@ -17,12 +17,12 @@ h1 {font:normal 11pt Tahoma;}
 </tr>
 <tr>
 	<td>INFO</td>
-	<td>Apr 19,2022 15:30</td>
+	<td>Apr 19,2022 16:13</td>
 	<td>Cobol2XML V0.1.0</td>
 </tr>
 <tr>
 	<td>INFO</td>
-	<td>Apr 19,2022 15:30</td>
+	<td>Apr 19,2022 16:13</td>
 	<td><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
@@ -53,6 +53,14 @@ h1 {font:normal 11pt Tahoma;}
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
+    <Perform>
+        <Start Value="base-to-decimal"/>
+        <End Value="base-to-decimal-ex"/>
+    </Perform>
+    <Perform>
+        <Start Value="decimal-to-base"/>
+        <End Value="decimal-to-base-ex"/>
+    </Perform>
     <comment>convert from decimal to base system </comment>
     <Move>
         <From Value="entry_number"/>
@@ -72,6 +80,10 @@ h1 {font:normal 11pt Tahoma;}
         <From Value="0.0"/>
         <To Value="w_number"/>
     </Move>
+    <Perform>
+        <Start Value="test"/>
+        <End Value="varying"/>
+    </Perform>
     <Move>
         <From Value="w_number"/>
         <To Value="entry_number"/>

@@ -28,6 +28,14 @@
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
+    <Perform>
+        <Start Value="base-to-decimal"/>
+        <End Value="base-to-decimal-ex"/>
+    </Perform>
+    <Perform>
+        <Start Value="decimal-to-base"/>
+        <End Value="decimal-to-base-ex"/>
+    </Perform>
     <comment>convert from decimal to base system </comment>
     <Move>
         <From Value="entry_number"/>
@@ -47,6 +55,10 @@
         <From Value="0.0"/>
         <To Value="w_number"/>
     </Move>
+    <Perform>
+        <Start Value="test"/>
+        <End Value="varying"/>
+    </Perform>
     <Move>
         <From Value="w_number"/>
         <To Value="entry_number"/>
