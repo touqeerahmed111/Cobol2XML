@@ -64,6 +64,20 @@ public class CobolParser {
 		return a;
 	}
 	/*
+	* Return a parser that will recognise the grammar:
+	*
+	* <accept>
+	*
+	*/
+	protected Parser accept() {
+		
+	Sequence s = new Sequence();
+	s.add(new CaselessLiteral("accept"));
+	s.add(new Repetition(new Word()));
+	s.setAssembler(new AcceptAssembler());
+	return s;
+	}
+	/*
 	* Return a parser that will recognize the grammar:
 	*
 	* move something to somewhere 

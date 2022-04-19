@@ -99,7 +99,9 @@ public class XMLPayload {
 		 */
 		String accept = c.getAccept();
 		if (accept != null) {
-			this.addAccept(accept);
+			this.addAcceptElement(accept);
+		} else {
+			// accept null
 		}
 		
 		/*
@@ -108,9 +110,13 @@ public class XMLPayload {
 		String moveFrom = c.getMoveFrom();
 		if (moveFrom != null) {
 		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
+<<<<<<< HEAD
 		
 		} 
 		
+=======
+		}
+>>>>>>> 9151a6ef48d0969741ce182f955755ccd288f8b9
 		
 		/*
 		* add commentLine element
@@ -199,9 +205,10 @@ public class XMLPayload {
 	/**
 	 * @param accept
 	 */
-	private void addAccept(String accept) {
+	private void addAcceptElement(String accept) {
+		// accept element
+		
 		if (accept != null) {
-//			System.out.println(accept);
 			Element cobolname = doc.createElement("accept");
 			cobolname.appendChild(doc.createTextNode(accept));
 			rootElement.appendChild(cobolname);
