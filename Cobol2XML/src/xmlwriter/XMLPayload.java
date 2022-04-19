@@ -95,13 +95,23 @@ public class XMLPayload {
 	
 	public void addElements(Cobol c) {
 		/*
+		 * add accept element
+		 */
+		String accept = c.getAccept();
+		if (accept != null) {
+			this.addAccept(accept);
+		}
+		
+		/*
 		* add moveFromTo element
 		*/
 		String moveFrom = c.getMoveFrom();
 		if (moveFrom != null) {
 		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
 		
-		} 
+		} else {
+			System.out.println("accept null");
+			}
 		
 		
 		/*
@@ -187,6 +197,18 @@ public class XMLPayload {
 			this.addYearDateWrittenElement( yearDateWritten );
 		}
 
+	}
+	/**
+	 * @param accept
+	 */
+	private void addAccept(String accept) {
+		if (accept != null) {
+//			System.out.println(accept);
+			Element cobolname = doc.createElement("accept");
+			cobolname.appendChild(doc.createTextNode(accept));
+			rootElement.appendChild(cobolname);
+			
+		}
 	}
 	
 
