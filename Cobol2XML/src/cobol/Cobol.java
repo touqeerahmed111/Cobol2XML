@@ -24,6 +24,7 @@ package cobol;
 import utensil.*;
 
 public class Cobol implements PubliclyCloneable {
+	protected String accept;
 	protected String commentLine;
 	protected String program_id;
 	protected String sectionName;
@@ -108,6 +109,12 @@ public class Cobol implements PubliclyCloneable {
 		}
 	}
 	
+	public String getAccept() {
+		return this.accept;
+	}
+	public void setAccept(String accept) {
+		this.accept = accept;
+	}
 	
 	public String getConstantName() {
 		return constantName;

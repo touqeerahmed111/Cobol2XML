@@ -130,14 +130,22 @@ public class XMLPayload {
 		this.addPerform(c.getPerformAction(), c.getPerformEnd(), c.getPerformStart());
 		
 		/*
+		 * add accept element
+		 */
+		String accept = c.getAccept();
+		if (accept != null) {
+			this.addAcceptElement(accept);
+		} else {
+			// accept null
+		}
+		
+		/*
 		* add moveFromTo element
 		*/
 		String moveFrom = c.getMoveFrom();
 		if (moveFrom != null) {
 		this.addMoveFromToElement( moveFrom, c.getMoveTo() );
-		
-		} 
-		
+		}
 		
 		/*
 		* add commentLine element
@@ -222,6 +230,19 @@ public class XMLPayload {
 			this.addYearDateWrittenElement( yearDateWritten );
 		}
 
+	}
+	/**
+	 * @param accept
+	 */
+	private void addAcceptElement(String accept) {
+		// accept element
+		
+		if (accept != null) {
+			Element cobolname = doc.createElement("accept");
+			cobolname.appendChild(doc.createTextNode(accept));
+			rootElement.appendChild(cobolname);
+			
+		}
 	}
 	
 
