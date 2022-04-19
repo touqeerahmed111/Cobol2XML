@@ -92,7 +92,7 @@ public class XMLPayload {
 	void addPerform(String actionP, String endP, String startP) {
 		// System.out.println("action: " + actionP + " end: " + endP + " start: " +
 		// startP);
-		if (startP != "") {
+		if (startP != null) {
 			// System.out.println(moveFrom);
 			Element cobolname = doc.createElement("Perform");
 			Element start = doc.createElement("Start");
@@ -107,7 +107,7 @@ public class XMLPayload {
 			cobolname.appendChild(end);
 			rootElement.appendChild(cobolname);
 
-		} else if (actionP != "") {
+		} else if (actionP != null) {
 
 			Element cobolname = doc.createElement("Perform");
 			Element start = doc.createElement("Action");
