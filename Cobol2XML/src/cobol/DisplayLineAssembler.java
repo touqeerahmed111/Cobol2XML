@@ -6,7 +6,7 @@ import parse.tokens.*;
 public class DisplayLineAssembler extends Assembler {
 	
 	/**
-	 * Pop a string, and set the AcceptLine to this string.
+	 * Pop a string, and set the DisplayLine to this string.
 	 * 
 	 * @param Assembly the assembly to work on
 	 */
@@ -17,18 +17,30 @@ public class DisplayLineAssembler extends Assembler {
 		while (!a.stackIsEmpty())
 		{
 			Token t = (Token) a.pop();
-			str += " " + t.sval().trim();
+			if(t.sval().contains("Value") || t.sval().contains("value"))
+			{
+				c.setDisplayValue(t.sval().trim());
+			}
+			else if(t.sval().contains("Base")) 
+			{
+				c.setDisplayBase(t.sval().trim());
+			}
+			else if(!t.sval().equals("display"))
+			{
+				str = t.sval().trim() + " " + str;
+			}
 		}
+		/*
 		if(!str.isEmpty()) {
-			String words[] = str.split("\\s");
+			String words[] = str.split(" ");
 			String revStr = "";
 			for (int i = words.length-1; i>0; i--)
 			{
 				revStr += words[i-1] + " ";
 			}
-			c.setDisplayLine(revStr);
-			a.setTarget(c);
-		}
+		*/
+			c.setDisplayLine(str);
+			a.setTarget(c);		
 	}
 
 }

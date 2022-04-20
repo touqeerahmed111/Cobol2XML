@@ -88,6 +88,32 @@ public class XMLPayload {
 			rootElement.appendChild(cobolname);
 		}
 	}
+	
+	void addDisplayValueElement(String displayLine, String displayBase, String displayValue)
+	{
+		/*
+		if(stringElement != null) {
+			Element cobolname = doc.createElement("display");
+			cobolname.appendChild(doc.createTextNode(stringElement));
+			rootElement.appendChild(cobolname);
+		}
+		*/
+		if (displayLine != null)
+		{
+			Element cobolname = doc.createElement("Display");
+			//insert base of display into XML file
+			Attr baseType = doc.createAttribute("Base");
+			baseType.setValue(displayBase);
+			cobolname.setAttributeNode(baseType);
+			cobolname.appendChild(baseType);
+			//insert value of display into XML file
+			Attr valueType = doc.createAttribute("Value");
+			valueType.setValue(displayValue);
+			cobolname.setAttributeNode(valueType);
+			cobolname.appendChild(valueType);
+			rootElement.appendChild(cobolname);
+		}
+	}
 
 	void addPerform(String actionP, String endP, String startP) {
 		// System.out.println("action: " + actionP + " end: " + endP + " start: " +
@@ -136,7 +162,7 @@ public class XMLPayload {
 		/*
 		 * add AcceptLine element
 		 */
-		String acceptLine = c.getAcceptLine();
+		String acceptLine = c.getAccept();
 		if(acceptLine != null) {
 			this.addAcceptLineElement(acceptLine);
 			//System.out.println("Got Section");
@@ -244,20 +270,6 @@ public class XMLPayload {
 	}
 
 	/**
-	 * @param accept
-	 */
-	private void addAcceptElement(String accept) {
-		// accept element
-
-		if (accept != null) {
-			Element cobolname = doc.createElement("accept");
-			cobolname.appendChild(doc.createTextNode(accept));
-			rootElement.appendChild(cobolname);
-
-		}
-	}
-
-	/**
 	 * @param moveFrom
 	 * @param moveTo
 	 */
@@ -311,7 +323,7 @@ public class XMLPayload {
 	}
  	
 	void addDisplayLineElement(String stringElement) {
-		// Accept line element
+		// Display line element
 		
 		if(stringElement != null) {
 			Element cobolname = doc.createElement("display");

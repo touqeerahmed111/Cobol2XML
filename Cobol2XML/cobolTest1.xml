@@ -28,20 +28,21 @@
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
-    <display>"  "Base: no  </display>
+    <display>window erase </display>
+    <display>no </display>
     <accept>current_base convert  </accept>
-    <display>" "Value: no  </display>
+    <display>no </display>
     <accept>entry_char  </accept>
     <Perform>
         <Start Value="base-to-decimal"/>
         <End Value="base-to-decimal-ex"/>
     </Perform>
-    <display>" value:  "Decimal entry_char  </display>
+    <display>entry_char </display>
     <Perform>
         <Start Value="decimal-to-base"/>
         <End Value="decimal-to-base-ex"/>
     </Perform>
-    <display>" "Base: current_base  </display>
+    <display>current_base entry_char </display>
     <accept>omitted  </accept>
     <comment>convert from decimal to base system </comment>
     <Move>

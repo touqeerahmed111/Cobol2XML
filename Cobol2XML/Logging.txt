@@ -1,6 +1,6 @@
-Apr 19, 2022 4:47:42 PM cobol.Cobol2XML main
+Apr 20, 2022 12:58:58 AM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
-Apr 19, 2022 4:47:42 PM xmlwriter.XMLPayload writeFile
+Apr 20, 2022 12:58:59 AM xmlwriter.XMLPayload writeFile
 INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
@@ -31,20 +31,21 @@ INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
-    <display>"  "Base: no  </display>
+    <display>window erase </display>
+    <display>no </display>
     <accept>current_base convert  </accept>
-    <display>" "Value: no  </display>
+    <display>no </display>
     <accept>entry_char  </accept>
     <Perform>
         <Start Value="base-to-decimal"/>
         <End Value="base-to-decimal-ex"/>
     </Perform>
-    <display>" value:  "Decimal entry_char  </display>
+    <display>entry_char </display>
     <Perform>
         <Start Value="decimal-to-base"/>
         <End Value="decimal-to-base-ex"/>
     </Perform>
-    <display>" "Base: current_base  </display>
+    <display>current_base entry_char </display>
     <accept>omitted  </accept>
     <comment>convert from decimal to base system </comment>
     <Move>
