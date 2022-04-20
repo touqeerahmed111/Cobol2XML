@@ -89,7 +89,7 @@ public class XMLPayload {
 		}
 	}
 
-	void addPerform(String actionP, String endP, String startP) {
+	void addPerform(String endP, String startP) {
 		// System.out.println("action: " + actionP + " end: " + endP + " start: " +
 		// startP);
 		if (startP.equals("") == false) {
@@ -107,7 +107,7 @@ public class XMLPayload {
 			cobolname.appendChild(end);
 			rootElement.appendChild(cobolname);
 
-		} else if (actionP.equals("") == false) {
+		} /*else if (actionP.equals("") == false) {
 
 			Element cobolname = doc.createElement("Perform");
 			Element start = doc.createElement("Action");
@@ -117,13 +117,16 @@ public class XMLPayload {
 			cobolname.appendChild(start);
 			rootElement.appendChild(cobolname);
 
-		}
+		} */
 
 	}
 
 	public void addElements(Cobol c) {
 
-		this.addPerform(c.getPerformAction(), c.getPerformEnd(), c.getPerformStart());
+		String startP = c.getPerformStart();
+		if(startP.equals("")==false) {
+			this.addPerform(c.getPerformEnd(), startP);
+		}
 
 		/*
 		 * add moveFromTo element

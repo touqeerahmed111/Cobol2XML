@@ -72,23 +72,31 @@ public class CobolParser {
 		return a;
 	}
 	
+	/*
+	 * A parser to recognise the perform function
+	 */
 	protected Parser perform() {
 		
 		Sequence s = new Sequence();
 		s.add(new CaselessLiteral("perform"));
 		
-		Alternation start = new Alternation();
-		start.add(new Word());
-		s.add(start);
-		s.add(new Word());
+	
+		s.add(new Word()); //reads token if it is a word
+		s.add(new Word()); //reads token if it is a word
+		s.add(new Word()); //reads token if it is a word
 		
-		Alternation end = new Alternation();
-		end.add(new Word());
-		s.add(end);
-		
-		// work on the sequence.
 		s.setAssembler(new PerformAssembler());
 		return s;
+		
+		//Alternation start = new Alternation();
+		//start.add(new Word());
+		//s.add(start);
+		//Alternation end = new Alternation();
+		//end.add(new Word());
+		//s.add(end);
+		
+		// work on the sequence.
+		
 	}
 
 	/*
