@@ -25,7 +25,6 @@ import utensil.*;
 
 public class Cobol implements PubliclyCloneable {
 	protected String acceptLine;
-	protected String displayLine;
 	protected String commentLine;
 	protected String program_id;
 	protected String sectionName;
@@ -39,12 +38,31 @@ public class Cobol implements PubliclyCloneable {
 	protected int lineNumber = 0;
 	protected String moveFrom ;
 	protected String moveTo ;
+	//Display
+	protected String displayLine;
+	protected String displayBase;
+	protected String displayValue;
 	//perform values
 	protected String performStart = "";
 	protected String performEnd = "";
 	protected String performAction = "";
 	
-
+	public String getDisplayBase() {
+		return displayBase;
+	}
+	
+	public void setDisplayBase(String displayBase) {
+		this.displayBase = displayBase;
+	}
+	
+	public String getDisplayValue()
+	{
+		return displayValue;
+	}
+	
+	public void setDisplayValue(String displayValue) {
+		this.displayValue = displayValue;
+	}
 	
 	public String getPerformStart() {
 		return performStart;
@@ -200,7 +218,7 @@ public class Cobol implements PubliclyCloneable {
 	 * 
 	 * @return accept line
 	 */
-	public String getAcceptLine() {
+	public String getAccept() {
 		return acceptLine;
 	}
 	

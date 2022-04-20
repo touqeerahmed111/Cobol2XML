@@ -169,11 +169,19 @@ public class CobolParser {
 	{
 		Sequence s = new Sequence();
 		s.add(new CaselessLiteral("display"));
-		s.add(new QuotedString());
+		Alternation one = new Alternation();
+		one.add(new QuotedString());
+		one.add(new Word()); //first token either quote or word
+		s.add(one);
 		s.add(new Word());
-		Alternation alt = new Alternation();
-		alt.add(new QuotedString());
-		alt.add(new Word());
+		Alternation two = new Alternation();
+		two.add(new QuotedString());
+		two.add(new Empty()); //third token either quote or empty
+		s.add(two);
+		Alternation three = new Alternation();
+		three.add(new Word());
+		three.add(new Empty());//fourth token either word or empty
+		s.add(three);
 		s.setAssembler(new DisplayLineAssembler());
 		return s;
 	}
