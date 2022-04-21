@@ -280,13 +280,13 @@ public class XMLPayload {
 		if (moveFrom != null) {
 //			System.out.println(moveFrom);
 			Element cobolname = doc.createElement("Move");
-			Element from = doc.createElement("From");
-			Attr attrType = doc.createAttribute("Value");
+			Element from = doc.createElement("Move");
+			Attr attrType = doc.createAttribute("From");
 			attrType.setValue(moveFrom);
 			from.setAttributeNode(attrType);
 			cobolname.appendChild(from);
-			Element to = doc.createElement("To");
-			Attr attrType2 = doc.createAttribute("Value");
+			Element to = doc.createElement("Move");
+			Attr attrType2 = doc.createAttribute("To");
 			attrType2.setValue(moveTo);
 			to.setAttributeNode(attrType2);
 			cobolname.appendChild(to);
