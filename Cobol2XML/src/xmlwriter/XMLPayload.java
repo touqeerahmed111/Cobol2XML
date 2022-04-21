@@ -314,6 +314,12 @@ public class XMLPayload {
 			rootElement.appendChild(cobolname);
 		}
 	}
+	
+	public Object getAcceptLineElement() {
+		addAcceptLineElement("accept");
+		return rootElement;
+		
+	}
  	
 	void addCommentLineElement(String stringElement) {
 		// Comment Line element
