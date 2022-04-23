@@ -89,7 +89,7 @@ public class XMLPayload {
 		}
 	}
 	
-	void addDisplayValueElement(String displayLine, String displayBase, String displayValue)
+	void addDisplay(String displayLine, String displayBase, String displayValue)
 	{
 		/*
 		if(stringElement != null) {
@@ -98,19 +98,33 @@ public class XMLPayload {
 			rootElement.appendChild(cobolname);
 		}
 		*/
+		
+		//insert normal version of display into XML file
 		if (displayLine != null)
 		{
 			Element cobolname = doc.createElement("Display");
-			//insert base of display into XML file
+			cobolname.appendChild(doc.createTextNode(displayLine));
+			rootElement.appendChild(cobolname);
+		}
+		
+		
+		//insert base version of display into XML file
+		if(displayBase != null)
+		{
+			Element cobolname = doc.createElement("Display");
 			Attr baseType = doc.createAttribute("Base");
 			baseType.setValue(displayBase);
 			cobolname.setAttributeNode(baseType);
-			cobolname.appendChild(baseType);
-			//insert value of display into XML file
+			rootElement.appendChild(cobolname);
+		}
+		
+		//insert value version of display into XML file
+		if(displayValue != null)
+		{
+			Element cobolname = doc.createElement("Display");
 			Attr valueType = doc.createAttribute("Value");
 			valueType.setValue(displayValue);
 			cobolname.setAttributeNode(valueType);
-			cobolname.appendChild(valueType);
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -190,8 +204,8 @@ public class XMLPayload {
 		 * add DisplayLine element
 		 */
 		String displayLine = c.getDisplayLine();
-		if(displayLine != null) {
-			this.addDisplayLineElement(displayLine);
+		if(displayLine != null || c.getDisplayBase() != null || c.getDisplayValue() != null) {
+			this.addDisplay(displayLine, c.getDisplayBase(), c.getDisplayValue());
 			//System.out.println("Got Section");
 			//Add contents of procedure division
 		} else
@@ -326,16 +340,6 @@ public class XMLPayload {
 
 		if (stringElement != null) {
 			Element cobolname = doc.createElement("comment");
-			cobolname.appendChild(doc.createTextNode(stringElement));
-			rootElement.appendChild(cobolname);
-		}
-	}
- 	
-	void addDisplayLineElement(String stringElement) {
-		// Display line element
-		
-		if(stringElement != null) {
-			Element cobolname = doc.createElement("display");
 			cobolname.appendChild(doc.createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}

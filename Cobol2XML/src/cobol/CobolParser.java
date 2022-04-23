@@ -182,7 +182,7 @@ public class CobolParser {
 		three.add(new Word());
 		three.add(new Empty());//fourth token either word or empty
 		s.add(three);
-		s.setAssembler(new DisplayLineAssembler());
+		s.setAssembler(new DisplayAssembler());
 		return s;
 	}
 	
