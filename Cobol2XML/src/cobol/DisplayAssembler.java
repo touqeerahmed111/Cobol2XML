@@ -21,12 +21,14 @@ public class DisplayAssembler extends Assembler {
 			Token t = (Token) a.pop();
 			if(t.sval().contains("Value") || t.sval().contains("value"))
 			{
+				other = other.trim();
 				c.setDisplayValue(other);
 				other = "";
 				index += 1;
 			}
 			else if(t.sval().contains("Base")) 
 			{
+				other = other.trim();
 				c.setDisplayBase(other);
 				other = "";
 				index += 1;
@@ -48,7 +50,10 @@ public class DisplayAssembler extends Assembler {
 		if(index == 0)
 			str = other;
 		if(!str.equals(""))
+		{
+			str = str.trim();
 			c.setDisplayLine(str);
+		}
 		a.setTarget(c);		
 	}
 
