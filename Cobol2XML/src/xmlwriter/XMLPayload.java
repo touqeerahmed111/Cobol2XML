@@ -41,6 +41,7 @@ import java.util.logging.Logger;
 public class XMLPayload {
 	Document doc;
 	Element rootElement;
+	Element mainElement;
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	public XMLPayload() {
@@ -104,7 +105,10 @@ public class XMLPayload {
 		{
 			Element cobolname = doc.createElement("Display");
 			cobolname.appendChild(doc.createTextNode(displayLine));
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
 		}
 		
 		
@@ -115,7 +119,10 @@ public class XMLPayload {
 			Attr baseType = doc.createAttribute("Base");
 			baseType.setValue(displayBase);
 			cobolname.setAttributeNode(baseType);
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
 		}
 		
 		//insert value version of display into XML file
@@ -125,7 +132,29 @@ public class XMLPayload {
 			Attr valueType = doc.createAttribute("Value");
 			valueType.setValue(displayValue);
 			cobolname.setAttributeNode(valueType);
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
+		}
+	}
+	
+	void addMainLogic(String stringElement)
+	{
+		if(stringElement != null)
+		{
+			mainElement = doc.createElement(stringElement);
+			rootElement.appendChild(mainElement);
+		}
+	}
+	
+	void addGoBack(String stringElement)
+	{
+		if(stringElement != null)
+		{
+			Element gobackElement = doc.createElement(stringElement);
+			mainElement.appendChild(gobackElement);
+			mainElement = null;
 		}
 	}
 
@@ -145,7 +174,10 @@ public class XMLPayload {
 			attrType2.setValue(endP);
 			end.setAttributeNode(attrType2);
 			cobolname.appendChild(end);
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
 
 		} /*else if (actionP.equals("") == false) {
 
@@ -206,6 +238,30 @@ public class XMLPayload {
 		String displayLine = c.getDisplayLine();
 		if(displayLine != null || c.getDisplayBase() != null || c.getDisplayValue() != null) {
 			this.addDisplay(displayLine, c.getDisplayBase(), c.getDisplayValue());
+			//System.out.println("Got Section");
+			//Add contents of procedure division
+		} else
+		{
+			//System.out.println("Comment line null");
+		}
+		/*
+		 * add MainLogic element
+		 */
+		String mainLogicElement = c.getMainLogicElement();
+		if(mainLogicElement != null) {
+			this.addMainLogic(mainLogicElement);
+			//System.out.println("Got Section");
+			//Add contents of procedure division
+		} else
+		{
+			//System.out.println("Comment line null");
+		}
+		/*
+		 * add GoBack element
+		 */
+		String goBackElement = c.getGoBackElement();
+		if(goBackElement != null) {
+			this.addGoBack(goBackElement);
 			//System.out.println("Got Section");
 			//Add contents of procedure division
 		} else
@@ -325,7 +381,10 @@ public class XMLPayload {
 		if(stringElement != null) {
 			Element cobolname = doc.createElement("accept");
 			cobolname.appendChild(doc.createTextNode(stringElement));
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
 		}
 	}
 	

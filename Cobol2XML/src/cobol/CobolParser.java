@@ -57,6 +57,10 @@ public class CobolParser {
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
 		
+		a.add( MainLogicElement() );
+		
+		a.add( GoBackElement() );
+		
 		a.add( ProgramID() );
 		a.add(moveFromTo());
 		
@@ -202,6 +206,7 @@ public class CobolParser {
 	s.setAssembler(new ConstantValueAssembler());
 	return s;
 	}
+	
 	/*
 	 * Return a parser that will recognize the grammar:
 	 * 
@@ -215,7 +220,37 @@ public class CobolParser {
 		s.add(new Word().setAssembler(new Program_idAssembler()));
 		return s;
 	}
-
+	
+	/*
+	 * Return a parser that will recognise the grammer:
+	 * 
+	 *   main-logic.
+	 * 
+	 */
+	protected Parser MainLogicElement()
+	{
+		Sequence s = new Sequence();
+		s.add(new CaselessLiteral("main-logic"));
+		s.add(new Symbol(".").discard());
+		s.setAssembler(new MainLogicAssembler());
+		return s;
+	}
+	
+	/*
+	 * Return a parser that will recognise the grammer:
+	 * 
+	 *   goback.
+	 * 
+	 */
+	protected Parser GoBackElement()
+	{
+		Sequence s = new Sequence();
+		s.add(new CaselessLiteral("goback"));
+		s.add(new Symbol(".").discard());
+		s.setAssembler(new GoBackAssembler());
+		return s;
+	}
+	
 	/*
 	 * Return a parser that will recognise the grammar:
 	 * 
