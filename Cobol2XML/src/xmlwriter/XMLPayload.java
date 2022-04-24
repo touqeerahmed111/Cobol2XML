@@ -387,7 +387,12 @@ public class XMLPayload {
 				rootElement.appendChild(cobolname);
 		}
 	}
-	
+	/*
+	 * This method is created to access the
+	 * addAcceptLineElement() method for testing purpose
+	 * addAcceptLineElement() is a private method
+	 * @return rootElement object
+	 */
 	public Object getAcceptLineElement() {
 		addAcceptLineElement("accept");
 		return rootElement;
