@@ -26,6 +26,7 @@ public class AcceptLineAssembler extends Assembler {
 			{
 				revStr += words[i-1] + " ";
 			}
+			revStr = revStr.trim();
 			c.setAcceptLine(revStr);
 			a.setTarget(c);
 		}

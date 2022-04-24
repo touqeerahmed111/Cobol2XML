@@ -32,6 +32,8 @@ public class Cobol implements PubliclyCloneable {
 	protected int dayDateWritten = 0;
 	protected String monthDateWritten;
 	protected int yearDateWritten = 0;
+	protected String mainLogicElement;
+	protected String goBackElement;
 	// Constant Value
 	protected String constantName;
 	protected double constantValue;
@@ -230,6 +232,24 @@ public class Cobol implements PubliclyCloneable {
 	public String getDisplayLine() {
 		return displayLine;
 	}
+	
+	/**
+	 * Return main logic element of this Cobol program.
+	 * 
+	 * @return mainLogicElement
+	 */
+	public String getMainLogicElement() {
+		return mainLogicElement;
+	}
+	
+	/**
+	 * Return goback element of this Cobol program.
+	 * 
+	 * @return goBackElement
+	 */
+	public String getGoBackElement() {
+		return goBackElement;
+	}
 	 
 	/**
 	 * Return line of commented text from the COBOL program.
@@ -320,6 +340,24 @@ public class Cobol implements PubliclyCloneable {
 	 */
 	public void setDisplayLine(String displayLine) {
 		this.displayLine = displayLine;
+	}
+	
+	/**
+	 * Set the main logic element of this COBOL program.
+	 * 
+	 * @param  String  mainLogicElement
+	 */
+	public void setMainLogicElement(String mainLogicElement) {
+		this.mainLogicElement = mainLogicElement;
+	}
+	
+	/**
+	 * Set the go back element of this COBOL program.
+	 * 
+	 * @param  String goBackElement
+	 */
+	public void setGoBackElement(String goBackElement) {
+		this.goBackElement = goBackElement;
 	}
 
 	/**

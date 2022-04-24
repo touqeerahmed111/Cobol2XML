@@ -41,6 +41,7 @@ import java.util.logging.Logger;
 public class XMLPayload {
 	Document doc;
 	Element rootElement;
+	Element mainElement;
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	public XMLPayload() {
@@ -89,7 +90,7 @@ public class XMLPayload {
 		}
 	}
 	
-	void addDisplayValueElement(String displayLine, String displayBase, String displayValue)
+	void addDisplay(String displayLine, String displayBase, String displayValue)
 	{
 		/*
 		if(stringElement != null) {
@@ -98,20 +99,62 @@ public class XMLPayload {
 			rootElement.appendChild(cobolname);
 		}
 		*/
+		
+		//insert normal version of display into XML file
 		if (displayLine != null)
 		{
 			Element cobolname = doc.createElement("Display");
-			//insert base of display into XML file
+			cobolname.appendChild(doc.createTextNode(displayLine));
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
+		}
+		
+		
+		//insert base version of display into XML file
+		if(displayBase != null)
+		{
+			Element cobolname = doc.createElement("Display");
 			Attr baseType = doc.createAttribute("Base");
 			baseType.setValue(displayBase);
 			cobolname.setAttributeNode(baseType);
-			cobolname.appendChild(baseType);
-			//insert value of display into XML file
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
+		}
+		
+		//insert value version of display into XML file
+		if(displayValue != null)
+		{
+			Element cobolname = doc.createElement("Display");
 			Attr valueType = doc.createAttribute("Value");
 			valueType.setValue(displayValue);
 			cobolname.setAttributeNode(valueType);
-			cobolname.appendChild(valueType);
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
+		}
+	}
+	
+	void addMainLogic(String stringElement)
+	{
+		if(stringElement != null)
+		{
+			mainElement = doc.createElement(stringElement);
+			rootElement.appendChild(mainElement);
+		}
+	}
+	
+	void addGoBack(String stringElement)
+	{
+		if(stringElement != null)
+		{
+			Element gobackElement = doc.createElement(stringElement);
+			mainElement.appendChild(gobackElement);
+			mainElement = null;
 		}
 	}
 
@@ -131,7 +174,10 @@ public class XMLPayload {
 			attrType2.setValue(endP);
 			end.setAttributeNode(attrType2);
 			cobolname.appendChild(end);
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
 
 		} /*else if (actionP.equals("") == false) {
 
@@ -190,8 +236,32 @@ public class XMLPayload {
 		 * add DisplayLine element
 		 */
 		String displayLine = c.getDisplayLine();
-		if(displayLine != null) {
-			this.addDisplayLineElement(displayLine);
+		if(displayLine != null || c.getDisplayBase() != null || c.getDisplayValue() != null) {
+			this.addDisplay(displayLine, c.getDisplayBase(), c.getDisplayValue());
+			//System.out.println("Got Section");
+			//Add contents of procedure division
+		} else
+		{
+			//System.out.println("Comment line null");
+		}
+		/*
+		 * add MainLogic element
+		 */
+		String mainLogicElement = c.getMainLogicElement();
+		if(mainLogicElement != null) {
+			this.addMainLogic(mainLogicElement);
+			//System.out.println("Got Section");
+			//Add contents of procedure division
+		} else
+		{
+			//System.out.println("Comment line null");
+		}
+		/*
+		 * add GoBack element
+		 */
+		String goBackElement = c.getGoBackElement();
+		if(goBackElement != null) {
+			this.addGoBack(goBackElement);
 			//System.out.println("Got Section");
 			//Add contents of procedure division
 		} else
@@ -311,7 +381,10 @@ public class XMLPayload {
 		if(stringElement != null) {
 			Element cobolname = doc.createElement("accept");
 			cobolname.appendChild(doc.createTextNode(stringElement));
-			rootElement.appendChild(cobolname);
+			if(mainElement != null)
+				mainElement.appendChild(cobolname);
+			else
+				rootElement.appendChild(cobolname);
 		}
 	}
 	
@@ -326,16 +399,6 @@ public class XMLPayload {
 
 		if (stringElement != null) {
 			Element cobolname = doc.createElement("comment");
-			cobolname.appendChild(doc.createTextNode(stringElement));
-			rootElement.appendChild(cobolname);
-		}
-	}
- 	
-	void addDisplayLineElement(String stringElement) {
-		// Display line element
-		
-		if(stringElement != null) {
-			Element cobolname = doc.createElement("display");
 			cobolname.appendChild(doc.createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}

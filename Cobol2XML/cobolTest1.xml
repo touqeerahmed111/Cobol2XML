@@ -28,47 +28,51 @@
         <base_16 Value="16.0"/>
     </Constant>
     <division>procedure</division>
-    <display>window erase </display>
-    <display>no </display>
-    <accept>current_base convert  </accept>
-    <display>no </display>
-    <accept>entry_char  </accept>
-    <Perform>
-        <Start Value="base-to-decimal"/>
-        <End Value="base-to-decimal-ex"/>
-    </Perform>
-    <display>entry_char </display>
-    <Perform>
-        <Start Value="decimal-to-base"/>
-        <End Value="decimal-to-base-ex"/>
-    </Perform>
-    <display>current_base entry_char </display>
-    <accept>omitted  </accept>
+    <main-logic>
+        <Display>window erase</Display>
+        <Display Base="no"/>
+        <accept>current_base convert</accept>
+        <Display Value="no"/>
+        <accept>entry_char</accept>
+        <Perform>
+            <Start Value="base-to-decimal"/>
+            <End Value="base-to-decimal-ex"/>
+        </Perform>
+        <Display Value="entry_char"/>
+        <Perform>
+            <Start Value="decimal-to-base"/>
+            <End Value="decimal-to-base-ex"/>
+        </Perform>
+        <Display Base="current_base"/>
+        <Display Value="entry_char"/>
+        <accept>omitted</accept>
+        <goback/>
+    </main-logic>
     <comment>convert from decimal to base system </comment>
     <Move>
-        <From Value="entry_number"/>
-        <To Value="w_number"/>
+        <Move From="entry_number"/>
+        <Move To="w_number"/>
     </Move>
     <Move>
-        <From Value="spaces"/>
-        <To Value="entry_char"/>
+        <Move From="spaces"/>
+        <Move To="entry_char"/>
     </Move>
     <Move>
-        <From Value="16.0"/>
-        <To Value="ind"/>
+        <Move From="16.0"/>
+        <Move To="ind"/>
     </Move>
     <comment>convert from base to dicimal system </comment>
     <comment>allineamento a destra della variabile entry_char </comment>
     <Move>
-        <From Value="0.0"/>
-        <To Value="w_number"/>
+        <Move From="0.0"/>
+        <Move To="w_number"/>
     </Move>
     <Perform>
         <Start Value="test"/>
         <End Value="varying"/>
     </Perform>
     <Move>
-        <From Value="w_number"/>
-        <To Value="entry_number"/>
+        <Move From="w_number"/>
+        <Move To="entry_number"/>
     </Move>
 </cobol>

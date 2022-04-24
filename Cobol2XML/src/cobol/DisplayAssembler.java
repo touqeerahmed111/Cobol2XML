@@ -3,7 +3,7 @@ package cobol;
 import parse.*;
 import parse.tokens.*;
 
-public class DisplayLineAssembler extends Assembler {
+public class DisplayAssembler extends Assembler {
 	
 	/**
 	 * Pop a string, and set the DisplayLine to this string.
@@ -13,21 +13,29 @@ public class DisplayLineAssembler extends Assembler {
 	@Override
 	public void workOn(Assembly a) {
 		Cobol c = new Cobol();
+		int index = 0;
+		String other = "";
 		String str = "";
 		while (!a.stackIsEmpty())
 		{
 			Token t = (Token) a.pop();
 			if(t.sval().contains("Value") || t.sval().contains("value"))
 			{
-				c.setDisplayValue(t.sval().trim());
+				other = other.trim();
+				c.setDisplayValue(other);
+				other = "";
+				index += 1;
 			}
 			else if(t.sval().contains("Base")) 
 			{
-				c.setDisplayBase(t.sval().trim());
+				other = other.trim();
+				c.setDisplayBase(other);
+				other = "";
+				index += 1;
 			}
 			else if(!t.sval().equals("display"))
 			{
-				str = t.sval().trim() + " " + str;
+				other = t.sval().trim() + " " + other;
 			}
 		}
 		/*
@@ -39,8 +47,14 @@ public class DisplayLineAssembler extends Assembler {
 				revStr += words[i-1] + " ";
 			}
 		*/
+		if(index == 0)
+			str = other;
+		if(!str.equals(""))
+		{
+			str = str.trim();
 			c.setDisplayLine(str);
-			a.setTarget(c);		
+		}
+		a.setTarget(c);		
 	}
 
 }
