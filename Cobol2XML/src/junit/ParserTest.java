@@ -14,7 +14,7 @@ public class ParserTest {
 
 	@Test
 	public void test() {
-//		fail("Not yet implemented");
+
 		Tokenizer t = CobolParser.tokenizer();
 		Parser p = CobolParser.start();
 		t.setString("program-id. JB-base.");
