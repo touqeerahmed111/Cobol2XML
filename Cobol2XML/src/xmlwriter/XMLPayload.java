@@ -276,7 +276,7 @@ public class XMLPayload {
 	 * @param moveFrom
 	 * @param moveTo
 	 */
-	private void addMoveFromToElement(String moveFrom, String moveTo) {
+	public void addMoveFromToElement(String moveFrom, String moveTo) {
 		if (moveFrom != null) {
 //			System.out.println(moveFrom);
 			Element cobolname = doc.createElement("Move");
