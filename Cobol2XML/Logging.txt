@@ -1,2 +1,82 @@
-Apr 27, 2022 11:11:54 AM cobol.Cobol2XML main
+Apr 27, 2022 6:45:12 PM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
+Apr 27, 2022 6:45:12 PM xmlwriter.XMLPayload writeFile
+INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cobol>
+    <division>identification</division>
+    <Program-ID>base</Program-ID>
+    <day-date-written>7</day-date-written>
+    <month-date-written>mar</month-date-written>
+    <year-date-written>1995</year-date-written>
+    <division>data</division>
+    <section>working-storage</section>
+    <Constant>
+        <Constant Name="base_2"/>
+        <base_2 Line_Number="88"/>
+        <base_2 Value="2.0"/>
+    </Constant>
+    <Constant>
+        <Constant Name="base_8"/>
+        <base_8 Line_Number="88"/>
+        <base_8 Value="8.0"/>
+    </Constant>
+    <Constant>
+        <Constant Name="base_10"/>
+        <base_10 Line_Number="88"/>
+        <base_10 Value="10.0"/>
+    </Constant>
+    <Constant>
+        <Constant Name="base_16"/>
+        <base_16 Line_Number="88"/>
+        <base_16 Value="16.0"/>
+    </Constant>
+    <division>procedure</division>
+    <main-logic>
+        <Display>window erase</Display>
+        <Display Base="no"/>
+        <accept>current_base convert</accept>
+        <Display Value="no"/>
+        <accept>entry_char</accept>
+        <Perform>
+            <Start Value="base-to-decimal"/>
+            <End Value="base-to-decimal-ex"/>
+        </Perform>
+        <Display Value="entry_char"/>
+        <Perform>
+            <Start Value="decimal-to-base"/>
+            <End Value="decimal-to-base-ex"/>
+        </Perform>
+        <Display Base="current_base"/>
+        <Display Value="entry_char"/>
+        <accept>omitted</accept>
+        <goback/>
+    </main-logic>
+    <comment>convert from decimal to base system </comment>
+    <Move>
+        <Move From="entry_number"/>
+        <Move To="w_number"/>
+    </Move>
+    <Move>
+        <Move From="spaces"/>
+        <Move To="entry_char"/>
+    </Move>
+    <Move>
+        <Move From="16.0"/>
+        <Move To="ind"/>
+    </Move>
+    <comment>convert from base to dicimal system </comment>
+    <comment>allineamento a destra della variabile entry_char </comment>
+    <Move>
+        <Move From="0.0"/>
+        <Move To="w_number"/>
+    </Move>
+    <Perform>
+        <Start Value="test"/>
+        <End Value="varying"/>
+    </Perform>
+    <Move>
+        <Move From="w_number"/>
+        <Move To="entry_number"/>
+    </Move>
+</cobol>
+

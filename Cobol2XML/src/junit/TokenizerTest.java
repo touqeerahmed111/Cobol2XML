@@ -18,7 +18,6 @@ public class TokenizerTest {
 	public void test() {
 		Tokenizer t = CobolParser.tokenizer();
 		t.setString("Hello world 2022");
-		Vector<Token> v = new Vector<Token>();
 		Token tok = null;
 		try {
 			tok = t.nextToken();
@@ -26,20 +25,17 @@ public class TokenizerTest {
 			e.printStackTrace();
 		}
 		assertTrue(tok.sval().equals("Hello"));
-		v.addElement(tok);
 		try {
 			tok = t.nextToken();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		assertFalse(tok.sval().equals("World"));
-		v.addElement(tok);
 		try {
 			tok = t.nextToken();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		assertTrue(tok.nval()==2022);
-		v.addElement(tok);
 	}
 }
