@@ -16,12 +16,13 @@ public class MainLogicTest {
 	@Test
 	public void test() {
 		XMLPayload xmlp = new XMLPayload();
+		//Cobol File Test
 		Parser p = CobolParser.start();
 		Assembly input = new TokenAssembly("main-logic.");
 		Assembly output = p.bestMatch(input);
 		Cobol c = (Cobol) output.getTarget();
-		xmlp.addElements(c);
 		assertTrue(c.getMainLogicElement().equals("main-logic"));
+		xmlp.addElements(c);
 		
 		//Child Element Test
 		input = new TokenAssembly("display hello world");
