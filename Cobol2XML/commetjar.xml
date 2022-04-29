@@ -1,7 +1,4 @@
-Apr 29, 2022 10:07:38 AM cobol.Cobol2XML main
-INFO: Cobol2XML V0.1.0
-Apr 29, 2022 10:07:38 AM xmlwriter.XMLPayload writeFile
-INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
     <Program-ID>base</Program-ID>
@@ -79,4 +76,3 @@ INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <Move To="entry_number"/>
     </Move>
 </cobol>
-
