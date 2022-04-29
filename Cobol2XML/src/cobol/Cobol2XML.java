@@ -115,6 +115,8 @@ public class Cobol2XML {
 		  } // finally FilelInputStream
 		
 		//testing which file is being read and written.
+		System.out.println();
+		System.out.println();
 		System.out.println("arg[0]" + args[0]);
 		System.out.println("arg[0]" + args[0]+ " output-> "+args[1]);
 

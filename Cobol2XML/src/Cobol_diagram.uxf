@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>0</y>
+      <y>1026</y>
       <w>243</w>
       <h>540</h>
     </coordinates>
@@ -54,7 +54,7 @@ toString()
     <id>UMLClass</id>
     <coordinates>
       <x>360</x>
-      <y>54</y>
+      <y>1080</y>
       <w>387</w>
       <h>315</h>
     </coordinates>
@@ -86,7 +86,7 @@ toString()
     <id>UMLClass</id>
     <coordinates>
       <x>855</x>
-      <y>54</y>
+      <y>1080</y>
       <w>324</w>
       <h>72</h>
     </coordinates>
@@ -102,7 +102,7 @@ toString()
     <id>UMLClass</id>
     <coordinates>
       <x>873</x>
-      <y>360</y>
+      <y>1386</y>
       <w>216</w>
       <h>324</h>
     </coordinates>
@@ -135,7 +135,7 @@ toString()
     <id>Relation</id>
     <coordinates>
       <x>738</x>
-      <y>72</y>
+      <y>1098</y>
       <w>135</w>
       <h>45</h>
     </coordinates>
@@ -148,7 +148,7 @@ m1=0..*</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>819</x>
-      <y>216</y>
+      <y>1242</y>
       <w>171</w>
       <h>81</h>
     </coordinates>
@@ -163,7 +163,7 @@ m1=0..*</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>999</x>
-      <y>216</y>
+      <y>1242</y>
       <w>171</w>
       <h>81</h>
     </coordinates>
@@ -180,7 +180,7 @@ m1=0..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>909</x>
-      <y>288</y>
+      <y>1314</y>
       <w>108</w>
       <h>90</h>
     </coordinates>
@@ -193,7 +193,7 @@ implements</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1062</x>
-      <y>288</y>
+      <y>1314</y>
       <w>99</w>
       <h>90</h>
     </coordinates>
@@ -206,7 +206,7 @@ implements</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>684</x>
-      <y>819</y>
+      <y>1845</y>
       <w>216</w>
       <h>189</h>
     </coordinates>
@@ -229,7 +229,7 @@ implements</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>360</x>
-      <y>819</y>
+      <y>1845</y>
       <w>216</w>
       <h>189</h>
     </coordinates>
@@ -253,7 +253,7 @@ implements</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>567</x>
-      <y>882</y>
+      <y>1908</y>
       <w>135</w>
       <h>45</h>
     </coordinates>
@@ -266,7 +266,7 @@ extends</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>351</x>
-      <y>792</y>
+      <y>1818</y>
       <w>234</w>
       <h>234</h>
     </coordinates>
@@ -277,7 +277,7 @@ extends</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>675</x>
-      <y>792</y>
+      <y>1818</y>
       <w>234</w>
       <h>234</h>
     </coordinates>
@@ -288,7 +288,7 @@ extends</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>432</x>
-      <y>513</y>
+      <y>1539</y>
       <w>342</w>
       <h>180</h>
     </coordinates>
@@ -309,8 +309,206 @@ extends</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>243</x>
-      <y>657</y>
+      <x>648</x>
+      <y>2799</y>
+      <w>243</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>TokenString
+-
+
+-
+# tokens : Token[]
+&lt;constructor&gt; + TokenString(String)
+&lt;constructor&gt; + TokenString(Token[])
+&lt;constructor&gt; + TokenString(Tokenizer)
++ length():int
++ tokenAt(int):Token
++ toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>297</x>
+      <y>2178</y>
+      <w>153</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>CobolParser
+--
+
+--
++ start():Parser
++ tokenizer():Tokenizer
+# AcceptLine():Parser
++ cobol():Parser
+# CommentLine():Parser
+# constantValue():Parser
+........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>522</x>
+      <y>2178</y>
+      <w>207</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Tokenizer
+--
+
+--
+characterState : TokenizerState[]
+&lt;constructor&gt; + Tokenizer()
+&lt;constructor&gt; + Tokenizer(String)
++ getReader():PushBakReader
++ nextToken():Token
++ numberState():NumberState
++ wordState():WordState
+........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>369</x>
+      <y>2367</y>
+      <w>270</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>WordState
+--
+
+--
+# charbuf : char[]
+# wordChar : boolean[]
+&lt;Constructor&gt;+ WordState()
+# checkBufLength(int)
++ nextToken(PushbackReader, int, Tokenizer)
++ setWordChars(int, int, boolean)
+# wordChar(int)
+........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>441</x>
+      <y>2214</y>
+      <w>99</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses
+m1=0..*</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>2331</y>
+      <w>72</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses
+m1=0..*</panel_attributes>
+    <additional_attributes>10.0;40.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>342</x>
+      <y>2592</y>
+      <w>135</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Cobol2XML
+--
+- LOGGER : Logger
+--
++ main(String[])</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>2637</y>
+      <w>108</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses
+m1=0..*</panel_attributes>
+    <additional_attributes>100.0;30.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>558</x>
+      <y>2592</y>
+      <w>207</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Tokenizer
+--
+
+--
+characterState : TokenizerState[]
+&lt;constructor&gt; + Tokenizer()
+&lt;constructor&gt; + Tokenizer(String)
++ getReader():PushBakReader
++ nextToken():Token
++ numberState():NumberState
++ wordState():WordState
+........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>333</x>
+      <y>2790</y>
+      <w>216</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>TokenAssembly
+--
+# tokenString : TokenString
+-
++ TokenAssembly(String)
++ TokenAssembly(Tokenizer)
++ TokenAssembly(TokenString)
++ consumed(String)
++ defaultDelimiter()
++ length()
++ nextElement()
++ peek()
++ remainder(String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>405</x>
+      <y>2664</y>
+      <w>108</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses
+m1=0..*</panel_attributes>
+    <additional_attributes>90.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>2592</y>
       <w>144</w>
       <h>153</h>
     </coordinates>
@@ -325,6 +523,349 @@ extends</panel_attributes>
 + Token(String)
 + nval(): double
 + sval(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>2844</y>
+      <w>126</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses
+m1=0..*</panel_attributes>
+    <additional_attributes>120.0;30.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>783</x>
+      <y>2736</y>
+      <w>63</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+
+m1=0..*
+uses
+</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>3114</y>
+      <w>135</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Cobol2XML
+--
+- LOGGER : Logger
+--
++ main(String[])</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>675</x>
+      <y>3105</y>
+      <w>306</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Alternation
+--
+
+--
+&lt;constructor&gt;+Alternation()
+&lt;constructor&gt;+Alternation(String)
++ accept(ParserVisitor, ArrayList&lt;Assembly&gt;):void
++ match(ArrayList&lt;Assembly&gt;):ArrayList&lt;Assembly&gt;
+.......
+.........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>3267</y>
+      <w>306</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Sequence
+--
+
+--
+&lt;constructor&gt;+Alternation()
+&lt;constructor&gt;+Alternation(String)
++ accept(ParserVisitor, ArrayList&lt;Assembly&gt;):void
++ match(ArrayList&lt;Assembly&gt;):ArrayList&lt;Assembly&gt;
+.......
+.........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>3267</y>
+      <w>306</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Terminal
+--
+
+--
+&lt;constructor&gt;+Alternation()
+&lt;constructor&gt;+Alternation(String)
++ accept(ParserVisitor, ArrayList&lt;Assembly&gt;):void
++ match(ArrayList&lt;Assembly&gt;):ArrayList&lt;Assembly&gt;
+.......
+.........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>477</x>
+      <y>3123</y>
+      <w>216</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses
+m1=0..*</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>576</y>
+      <w>333</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Parser
+--
+# assembler : Assembler
+# name : String
+--
+&lt;&lt;Constructor&gt;&gt; + Parser()
+&lt;&lt;Constructor&gt;&gt; + Parser(String)
++ add(ArrayList&lt;Assembly&gt;, ArrayList&lt;Assembly&gt;):void
++ elementClone(ArrayList&lt;Assembly&gt;):ArrayList&lt;Assembly&gt;
++ accept(ParserVisitor, ArrayList&lt;Assembly&gt;):void
++ best(ArrayList&lt;Assembly&gt;):Assembly
+.....</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>774</x>
+      <y>729</y>
+      <w>243</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>Cobol
+-
+commentLine : String
+constantName : String
+constantValue : double
+dayDateWritten : int
+divisionName : String
+........
+-
+ifCobolObjEqual(Object, Object)
+clone() : Obj
+equals(Object)
+getCommentLine()
+getConstantName()
+getConstantValue()
+getDayDateWritten()
+..........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>702</x>
+      <y>576</y>
+      <w>324</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Assembler
+--
+
+-
++ elementsAbove(Assembly, Object):ArrayList&lt;Object&gt;
++ workOn(Assembly):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>792</y>
+      <w>216</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>TokenAssembly
+--
+# tokenString : TokenString
+-
++ TokenAssembly(String)
++ TokenAssembly(Tokenizer)
++ TokenAssembly(TokenString)
++ consumed(String)
++ defaultDelimiter()
++ length()
++ nextElement()
++ peek()
++ remainder(String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>855</x>
+      <y>639</y>
+      <w>54</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+uses</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>36</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+uses</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>207</x>
+      <y>261</y>
+      <w>216</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>TokenAssembly
+--
+# tokenString : TokenString
+-
++ TokenAssembly(String)
++ TokenAssembly(Tokenizer)
++ TokenAssembly(TokenString)
++ consumed(String)
++ defaultDelimiter()
++ length()
++ nextElement()
++ peek()
++ remainder(String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>486</x>
+      <y>207</y>
+      <w>243</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>Cobol
+-
+commentLine : String
+constantName : String
+constantValue : double
+dayDateWritten : int
+divisionName : String
+........
+-
+ifCobolObjEqual(Object, Object)
+clone() : Obj
+equals(Object)
+getCommentLine()
+getConstantName()
+getConstantValue()
+getDayDateWritten()
+..........</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>90</y>
+      <w>153</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+uses</panel_attributes>
+    <additional_attributes>140.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>234</x>
+      <y>36</y>
+      <w>135</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Cobol2XML
+--
+- LOGGER : Logger
+--
++ main(String[])</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>108</y>
+      <w>72</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+uses</panel_attributes>
+    <additional_attributes>40.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>486</x>
+      <y>27</y>
+      <w>243</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>XMLPayload
+-
+- LOGGER : Logger
++ doc : Document
++ mainElement : Element
++ rootElement : Element
+-
+&lt;constructor&gt;+ XMLPayload()
++ addAcceptLineElement(String):void
++ addCommentLineElement(String):void
++ addElements(Cobol):void
+..........</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
